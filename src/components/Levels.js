@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
 class Levels extends Component {
-  render() {
+    render() {
+      const {clicks} = this.props
     return (
         <div className="levels">
             <h2> JLPT Level </h2>
         <ul>
           <li>
-            <button> N5</button>
+            <button onClick = {clicks}> N5</button>
           </li>
           <li>
             <button> N4</button>

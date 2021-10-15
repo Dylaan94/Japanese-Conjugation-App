@@ -6,10 +6,13 @@ import Controller from "./Controller"
 import Levels from "./Levels"
 
 class Main extends Component {
+    handleLevelsInput() {
+        console.log("dealing with levels")
+    }
   render() {
       return <div>
           <Header></Header>
-          <Levels></Levels>
+          <Levels clicks = {this.handleLevelsInput}></Levels>
           <GrammarPoint></GrammarPoint>
           <Controller></Controller>
           <Footer></Footer>
