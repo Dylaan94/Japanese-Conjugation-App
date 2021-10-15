@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 class Header extends Component {
   render() {
-    return <div></div>;
+      return <div>
+        <h1>Japanese Conjugation App</h1>
+    </div>;
   }
 }
 
