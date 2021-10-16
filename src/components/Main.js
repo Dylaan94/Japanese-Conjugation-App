@@ -5,16 +5,27 @@ import GrammarPoint from "./GrammarPoint"
 import Controller from "./Controller"
 import Levels from "./Levels"
 
+import JLPTData from "./JLPTData"
+
 class Main extends Component {
-    handleLevelsInput() {
-        console.log("dealing with levels")
+    constructor(props) {
+        super(props);
+        this.state = {
+            N5: [JLPTData.N5]
+        }
+        this.handleLevelsInput = this.handleLevelsInput.bind(this)
+    }
+    handleLevelsInput(data) {
+        let levelChosen = data
+        console.log("dealing with levels" + levelChosen)
     }
   render() {
       return <div>
           <Header></Header>
-          <Levels clicks = {this.handleLevelsInput}></Levels>
+          <Levels handleLevelsChange = {this.handleLevelsInput}></Levels>
           <GrammarPoint></GrammarPoint>
           <Controller></Controller>
+
           <Footer></Footer>
     </div>;
   }

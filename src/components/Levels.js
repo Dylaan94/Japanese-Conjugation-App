@@ -1,26 +1,38 @@
 import React, { Component } from "react";
+import N5Array from "./JLPTData";
 
 class Levels extends Component {
-    render() {
-      const {clicks} = this.props
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.handleSelection = this.handleSelection.bind(this);
+  }
+
+  handleSelection = (data) => {
+    let chosenLevel = data;
+    console.log(chosenLevel);
+  };
+
+  render() {
     return (
-        <div className="levels">
-            <h2> JLPT Level </h2>
+      <div className="levels">
+        <h2> JLPT Level </h2>
         <ul>
           <li>
-            <button onClick = {clicks}> N5</button>
+            <button onClick={this.handleSelection.bind(this, "N5")}> N5</button>
           </li>
           <li>
-            <button> N4</button>
+            <button onClick={this.handleSelection.bind(this, "N4")}> N4</button>
           </li>
           <li>
-            <button> N3</button>
+            <button onClick={this.handleSelection.bind(this, "N3")}> N3</button>
           </li>
           <li>
-            <button> N2</button>
+            <button onClick={this.handleSelection.bind(this, "N2")}> N2</button>
           </li>
           <li>
-            <button> N1</button>
+            <button onClick={this.handleSelection.bind(this, "N1")}> N1</button>
           </li>
         </ul>
       </div>

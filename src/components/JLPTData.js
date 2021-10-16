@@ -1,5 +1,3 @@
-const dataArray = [];
-
 const N5Array = [
   {
     name: "浴びる",
@@ -40,3 +38,13 @@ const N3Array = [];
 const N2Array = [];
 
 const N1Array = [];
+
+const JLPTData = {
+  N5: N5Array,
+  N4: N4Array,
+  N3: N3Array,
+  N2: N2Array,
+  N1: N1Array,
+};
+
+export default JLPTData;
