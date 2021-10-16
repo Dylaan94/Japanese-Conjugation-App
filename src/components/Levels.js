@@ -8,10 +8,13 @@ class Levels extends Component {
 
     this.handleSelection = this.handleSelection.bind(this);
   }
-
-  handleSelection = (data) => {
-    let chosenLevel = data;
-    console.log(chosenLevel);
+    
+  // takes string that is passed in onClick and sends it
+  // to handleLevelsChange prop which is then dealt with in Main
+    
+  handleSelection = (selection) => {
+    let chosenLevel = selection;
+    this.props.handleLevelsChange(chosenLevel);
   };
 
   render() {
