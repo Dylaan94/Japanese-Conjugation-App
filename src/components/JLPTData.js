@@ -31,7 +31,38 @@ const N5Array = [
   },
 ];
 
-const N4Array = [];
+const N4Array = [
+  {
+    name: "会う",
+    dictionaryForm: "あう",
+    pastForm: "あった",
+    verbType: "Godan",
+  },
+  {
+    name: "合う",
+    dictionaryForm: "あう",
+    pastForm: "あった",
+    verbType: "Godan",
+  },
+  {
+    name: "上がる",
+    dictionaryForm: "上がる",
+    pastForm: "あがった",
+    verbType: "Godan",
+  },
+  {
+    name: "開ける",
+    dictionaryForm: "あける",
+    pastForm: "あけた",
+    verbType: "Ichidan",
+  },
+  {
+    name: "上げる",
+    dictionaryForm: "あげる",
+    pastForm: "あげた",
+    verbType: "Ichidan",
+  },
+];
 
 const N3Array = [];
 
