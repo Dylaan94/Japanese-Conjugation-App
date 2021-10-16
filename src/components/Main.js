@@ -23,6 +23,7 @@ class Main extends Component {
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleRandomisation = this.handleRandomisation.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
+    this.checkTextInput = this.checkTextInput.bind(this);
   }
   handleLevelsInput = (data) => {
     let levelChosen = data;
@@ -72,6 +73,7 @@ class Main extends Component {
   };
 
   handleTextInput = (e) => {
+    // update state with new text value dynamically
     let value = e.target.value;
     this.setState(
       {
@@ -83,6 +85,14 @@ class Main extends Component {
     );
   };
 
+  checkTextInput = () => {
+    // checks input value against randomly assigned verb
+    if (this.state.textInputValue == this.state.randomised.dictionaryForm) {
+      console.log("you got itttttt");
+    }
+    console.log("checking text input");
+  };
+
   render() {
     return (
       <div>
@@ -92,6 +102,7 @@ class Main extends Component {
         <Controller
           randomisedValue={this.state.randomised}
           handleTextInput={this.handleTextInput}
+          checkTextInput={this.checkTextInput}
           value={this.state.textInputValue}
         ></Controller>
         <Footer></Footer>

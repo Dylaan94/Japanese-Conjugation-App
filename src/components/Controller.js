@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 class Controller extends Component {
   render() {
-    const { randomisedValue, value, handleTextInput } = this.props; // destructure props
+    const {
+      randomisedValue,
+      value,
+      handleTextInput,
+      checkTextInput,
+    } = this.props; // destructure props
     return (
       <div>
         <div>
@@ -14,7 +19,10 @@ class Controller extends Component {
             type="text"
             placeholder="type your answer here"
             value={value}
-            onChange={handleTextInput}
+            onChange={(text) => {
+              handleTextInput(text);
+              checkTextInput();
+            }}
             name="textInputValue"
           />
         </div>
