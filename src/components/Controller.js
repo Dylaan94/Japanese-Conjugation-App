@@ -8,9 +8,7 @@ class Controller extends Component {
           <h1> Verb Displayed here</h1>
         </div>
         <div>
-
             <input type="text"/> 
-
         </div>
       </div>
     );

@@ -11,7 +11,11 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            N5: [JLPTData.N5]
+            N5: JLPTData.N5,
+            N4: JLPTData.N4,
+            N3: JLPTData.N3,
+            N2: JLPTData.N2,
+            N1: JLPTData.N1
         }
         this.handleLevelsInput = this.handleLevelsInput.bind(this)
     }
@@ -19,15 +23,25 @@ class Main extends Component {
         let levelChosen = data
         console.log("dealing with levels" + levelChosen)
     }
-  render() {
-      return <div>
-          <Header></Header>
-          <Levels handleLevelsChange = {this.handleLevelsInput}></Levels>
-          <GrammarPoint></GrammarPoint>
-          <Controller></Controller>
 
+
+  render() {
+      return (
+        <div>
+          <Header></Header>
+          <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
+          <GrammarPoint></GrammarPoint>
+          <div>
+            <div>
+                      <h1> {this.state.N5[0].name} </h1>
+            </div>
+            <div>
+              <input type="text" />
+            </div>
+          </div>
           <Footer></Footer>
-    </div>;
+        </div>
+      );
   }
 }
 
