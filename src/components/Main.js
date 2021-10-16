@@ -18,9 +18,11 @@ class Main extends Component {
       N1: JLPTData.N1,
       selected: [],
       randomised: { name: "テスト" },
+      textInputValue: "",
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleRandomisation = this.handleRandomisation.bind(this);
+    this.handleTextInput = this.handleTextInput.bind(this);
   }
   handleLevelsInput = (data) => {
     let levelChosen = data;
@@ -69,13 +71,29 @@ class Main extends Component {
     console.log(array);
   };
 
+  handleTextInput = (e) => {
+    let value = e.target.value;
+    this.setState(
+      {
+        textInputValue: value,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
   render() {
     return (
       <div>
         <Header></Header>
         <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
         <GrammarPoint></GrammarPoint>
-        <Controller randomisedValue={this.state.randomised}></Controller>
+        <Controller
+          randomisedValue={this.state.randomised}
+          handleTextInput={this.handleTextInput}
+          value={this.state.textInputValue}
+        ></Controller>
         <Footer></Footer>
       </div>
     );
