@@ -20,41 +20,48 @@ class GrammarPoint extends Component {
   render() {
     return (
       <Styles.GrammarPointsMain>
-        <h2> Conjugation </h2>
+        <h2> Conjugation Form </h2>
         <ul>
           <li>
             <button onClick={this.handleSelection.bind(this, "pastForm")}>
-              past form
+              past
             </button>
           </li>
           <li>
             <button onClick={this.handleSelection.bind(this, "potentialForm")}>
-              potential form
+              potential
             </button>
           </li>
           <li>
             <button onClick={this.handleSelection.bind(this, "passiveForm")}>
-              passive form
+              passive
             </button>
           </li>
           <li>
             <button onClick={this.handleSelection.bind(this, "causativeForm")}>
-              causative form
+              causative
             </button>
           </li>
+        </ul>
+        <ul>
           <li>
             <button onClick={this.handleSelection.bind(this, "teForm")}>
-              te form
+              te
             </button>
           </li>
           <li>
             <button onClick={this.handleSelection.bind(this, "masuForm")}>
-              masu form
+              masu
             </button>
           </li>
           <li>
             <button onClick={this.handleSelection.bind(this, "volitionalForm")}>
-              volitional form
+              volitional
+            </button>
+          </li>
+          <li>
+            <button onClick={this.handleSelection.bind(this, "volitionalForm")}>
+              imperitive
             </button>
           </li>
         </ul>

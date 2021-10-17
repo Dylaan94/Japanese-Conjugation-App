@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Styles from "./styles/Styles"
+
 class Controller extends Component {
   render() {
     const {
@@ -8,26 +10,26 @@ class Controller extends Component {
       handleTextInput,
       checkTextInput,
     } = this.props; // destructure props
-    return (
-      <div>
-        <div>
-          <h1> {randomisedValue.name} </h1>
-          <h2> {randomisedValue.verbType}</h2>
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="type your answer here"
-            value={value}
-            onChange={(text) => {
-              handleTextInput(text);
-              checkTextInput();
-            }}
-            name="textInputValue"
-          />
-        </div>
-      </div>
-    );
+      return (
+        <Styles.ControllerMain>
+            <div className = "textDisplayDiv">
+              <h1> {randomisedValue.name} </h1>
+              <h2> {randomisedValue.verbType}</h2>
+            </div>
+            <div className = "inputDiv">
+              <input
+                type="text"
+                placeholder="type your answer here"
+                value={value}
+                onChange={(text) => {
+                  handleTextInput(text);
+                  checkTextInput();
+                }}
+                name="textInputValue"
+              />
+            </div>
+        </Styles.ControllerMain>
+      );
   }
 }
 
