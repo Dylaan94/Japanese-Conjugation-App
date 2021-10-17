@@ -20,7 +20,7 @@ const N5Array = [
   {
     name: "開く",
     dictionaryForm: "あく",
-    pastForm: "開けた",
+    pastForm: "あけた",
     verbType: "Godan",
   },
   {

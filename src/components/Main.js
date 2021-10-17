@@ -23,6 +23,7 @@ class Main extends Component {
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleRandomisation = this.handleRandomisation.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
+    this.handleCorrectInput = this.handleCorrectInput.bind(this);
     this.checkTextInput = this.checkTextInput.bind(this);
   }
   handleLevelsInput = (data) => {
@@ -85,12 +86,23 @@ class Main extends Component {
     );
   };
 
+  handleCorrectInput = () => {
+    let data = this.state.selected;
+    this.setState(
+      {
+        textInputValue: "", // reset input value
+      },
+      () => {
+        this.handleRandomisation(data); // call new verb
+      }
+    );
+  };
+
   checkTextInput = () => {
-    // checks input value against randomly assigned verb
-    if (this.state.textInputValue == this.state.randomised.dictionaryForm) {
-      console.log("you got itttttt");
+    // checks input value against randomly assigned verb and then runs
+    if (this.state.textInputValue == this.state.randomised.pastForm) {
+      this.handleCorrectInput();
     }
-    console.log("checking text input");
   };
 
   render() {
