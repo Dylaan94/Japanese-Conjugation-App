@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+// component imports
 import Header from "./Header";
 import Footer from "./Footer";
 import GrammarPoint from "./GrammarPoint";
 import Controller from "./Controller";
 import Levels from "./Levels";
-
+// data imports
 import JLPTData from "./JLPTData";
+// style imports
+import Styles from "./styles/Styles";
 
 class Main extends Component {
   constructor(props) {
@@ -26,6 +29,7 @@ class Main extends Component {
     this.handleCorrectInput = this.handleCorrectInput.bind(this);
     this.checkTextInput = this.checkTextInput.bind(this);
   }
+
   handleLevelsInput = (data) => {
     let levelChosen = data;
     let selectedLevelArray = [];
@@ -100,6 +104,7 @@ class Main extends Component {
 
   checkTextInput = () => {
     // checks input value against randomly assigned verb and then runs
+    // need to add something that changes what type of form based off selection here
     if (this.state.textInputValue == this.state.randomised.pastForm) {
       this.handleCorrectInput();
     }
@@ -107,7 +112,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <Styles.MainContainer>
         <Header></Header>
         <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
         <GrammarPoint></GrammarPoint>
@@ -118,7 +123,7 @@ class Main extends Component {
           value={this.state.textInputValue}
         ></Controller>
         <Footer></Footer>
-      </div>
+      </Styles.MainContainer>
     );
   }
 }

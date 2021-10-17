@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Styles from "./styles/Styles";
 
 class GrammarPoint extends Component {
   constructor(props) {
@@ -18,54 +19,56 @@ class GrammarPoint extends Component {
 
   render() {
     return (
-      <div>
-        <div className="grammarPoint">
-          <h2> Conjugation </h2>
-          <ul>
-            <li>
-              <button onClick={this.handleSelection.bind(this, "pastForm")}>
-                past form
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={this.handleSelection.bind(this, "potentialForm")}
-              >
-                potential form
-              </button>
-            </li>
-            <li>
-              <button onClick={this.handleSelection.bind(this, "passiveForm")}>
-                passive form
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={this.handleSelection.bind(this, "causativeForm")}
-              >
-                causative form
-              </button>
-            </li>
-            <li>
-              <button onClick={this.handleSelection.bind(this, "teForm")}>
-                te form
-              </button>
-            </li>
-            <li>
-              <button onClick={this.handleSelection.bind(this, "masuForm")}>
-                masu form
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={this.handleSelection.bind(this, "volitionalForm")}
-              >
-                volitional form
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Styles.GrammarPointsMain>
+          <div className="grammarPoint">
+            <h2> Conjugation </h2>
+            <ul>
+              <li>
+                <button onClick={this.handleSelection.bind(this, "pastForm")}>
+                  past form
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={this.handleSelection.bind(this, "potentialForm")}
+                >
+                  potential form
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={this.handleSelection.bind(this, "passiveForm")}
+                >
+                  passive form
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={this.handleSelection.bind(this, "causativeForm")}
+                >
+                  causative form
+                </button>
+              </li>
+              <li>
+                <button onClick={this.handleSelection.bind(this, "teForm")}>
+                  te form
+                </button>
+              </li>
+              <li>
+                <button onClick={this.handleSelection.bind(this, "masuForm")}>
+                  masu form
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={this.handleSelection.bind(this, "volitionalForm")}
+                >
+                  volitional form
+                </button>
+              </li>
+            </ul>
+          </div>
+      </Styles.GrammarPointsMain>
     );
   }
 }
