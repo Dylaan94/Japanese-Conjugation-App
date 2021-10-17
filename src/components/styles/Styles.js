@@ -6,18 +6,20 @@ const MainContainer = styled.div`
   flex-direction: column;
   width: 80vw;
   height: 90vh;
-  margin-top: 5vh;
+  max-width: 600px;
+  margin-top: 3vh;
   align-items: center;
-  background: green;
+  background: #219ebc;
+  border: 3px solid #8ecae6;
 `;
 
 // Header Styles
 
 const HeaderMain = styled.div`
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 900;
   h1 {
-    padding: 0.5em;
+    padding: 0.7em;
   }
 `;
 
@@ -108,14 +110,17 @@ const ControllerMain = styled.div`
   align-items: center;
   .textDisplayDiv {
     margin-top: 3vh;
-    background: blue;
-    width: 50vw;
+    background: #023047;
+    width: 60vw;
     height: 35vh;
+    max-width: 500px;
     text-align: center;
+    border: 3px solid #8ecae6;
     h1 {
-        margin-top: 5vh;
-        font-size: 6em;
-        font-weight: 900;
+      margin-top: 2vh;
+      font-size: 9rem;
+      font-weight: 900;
+      color: white;
     }
   }
 `;

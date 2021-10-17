@@ -111,7 +111,7 @@ class Main extends Component {
   };
 
   render() {
-    return (
+      return (
       <Styles.MainContainer>
         <Header></Header>
         <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
