@@ -1,26 +1,42 @@
 import styled from "styled-components";
 
+// styles entire app, needed to set flex
+const MainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+// Header Styles
+const HeaderMain = styled.div`
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  font-size: 3rem;
+  font-weight: 900;
+  height: 8vh;
+  background: #343a40;
+  color: white;
+  margin-bottom: 2vh;
+  border-bottom: 3px solid #212529;
+  h1 {
+    padding: 0.7em;
+  }
+`;
+
 // Main Container Styles
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 80vw;
-  height: 90vh;
+  height: 80vh;
   max-width: 600px;
-  margin-top: 3vh;
   align-items: center;
   background: #219ebc;
   border: 3px solid #8ecae6;
-`;
-
-// Header Styles
-
-const HeaderMain = styled.div`
-  font-size: 3rem;
-  font-weight: 900;
-  h1 {
-    padding: 0.7em;
-  }
+  border-radius: 25px;
 `;
 
 // Levels Styles
@@ -28,8 +44,18 @@ const HeaderMain = styled.div`
 const LevelsMain = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    padding-left: 0.5em;
+  }
   ul {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     list-style-type: none;
   }
@@ -63,8 +89,19 @@ const LevelsMain = styled.div`
 const GrammarPointsMain = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 700px;
+  width: 100%;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    padding-left: 0.5em;
+  }
   ul {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     list-style-type: none;
   }
@@ -116,6 +153,7 @@ const ControllerMain = styled.div`
     max-width: 500px;
     text-align: center;
     border: 3px solid #8ecae6;
+    border-radius: 25px;
     h1 {
       margin-top: 2vh;
       font-size: 9rem;
@@ -128,6 +166,7 @@ const ControllerMain = styled.div`
 // Footer Styles
 
 const Styles = {
+  MainDiv: MainDiv,
   MainContainer: MainContainer,
   HeaderMain: HeaderMain,
   LevelsMain: LevelsMain,

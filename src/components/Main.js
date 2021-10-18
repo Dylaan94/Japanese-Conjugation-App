@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import GrammarPoint from "./GrammarPoint";
+import CurrentSelection from "./CurrentSelection";
 import Controller from "./Controller";
 import Levels from "./Levels";
 // data imports
@@ -111,19 +112,22 @@ class Main extends Component {
   };
 
   render() {
-      return (
-      <Styles.MainContainer>
+    return (
+      <Styles.MainDiv>
         <Header></Header>
-        <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
-        <GrammarPoint></GrammarPoint>
-        <Controller
-          randomisedValue={this.state.randomised}
-          handleTextInput={this.handleTextInput}
-          checkTextInput={this.checkTextInput}
-          value={this.state.textInputValue}
-        ></Controller>
-        <Footer></Footer>
-      </Styles.MainContainer>
+        <Styles.MainContainer>
+          <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
+          <GrammarPoint></GrammarPoint>
+          <CurrentSelection></CurrentSelection>
+          <Controller
+            randomisedValue={this.state.randomised}
+            handleTextInput={this.handleTextInput}
+            checkTextInput={this.checkTextInput}
+            value={this.state.textInputValue}
+          ></Controller>
+          <Footer></Footer>
+        </Styles.MainContainer>
+      </Styles.MainDiv>
     );
   }
 }

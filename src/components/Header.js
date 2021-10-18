@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <Styles.HeaderMain>
-        <h1>日本語 Conjugation App</h1>
+        <h1>日本語 Conjugation Practice App</h1>
       </Styles.HeaderMain>
     );
   }

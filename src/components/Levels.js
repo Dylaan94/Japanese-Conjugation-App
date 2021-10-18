@@ -25,19 +25,19 @@ class Levels extends Component {
 
         <ul>
           <li>
-            <button onClick={this.handleSelection.bind(this, "N5")}> N5</button>
+            <button name = "N5" onClick={this.handleSelection.bind(this, "N5")}>  N5</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "N4")}> N4</button>
+            <button name = "N4" onClick={this.handleSelection.bind(this, "N4")}> N4</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "N3")}> N3</button>
+            <button name = "N3" onClick={this.handleSelection.bind(this, "N3")}> N3</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "N2")}> N2</button>
+            <button name = "N2" onClick={this.handleSelection.bind(this, "N2")}> N2</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "N1")}> N1</button>
+            <button name = "N1" onClick={this.handleSelection.bind(this, "N1")}> N1</button>
           </li>
         </ul>
       </Styles.LevelsMain>
