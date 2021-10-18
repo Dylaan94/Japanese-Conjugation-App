@@ -14,7 +14,8 @@ class GrammarPoint extends Component {
 
   handleSelection = (selection) => {
     let chosenGrammar = selection;
-    console.log(chosenGrammar);
+      console.log(chosenGrammar);
+      this.props.handleGrammarChange(chosenGrammar)
   };
 
   render() {

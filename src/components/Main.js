@@ -23,10 +23,11 @@ class Main extends Component {
       selected: [],
       randomised: { name: "テスト" },
       textInputValue: "",
-      currentlLevel: "",
+      currentLevel: "",
       currentGrammar: "",
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
+    this.handleGrammarInput = this.handleGrammarInput.bind(this);
     this.handleRandomisation = this.handleRandomisation.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleCorrectInput = this.handleCorrectInput.bind(this);
@@ -34,14 +35,39 @@ class Main extends Component {
   }
 
   handleLevelsInput = (data) => {
-    let levelChosen = data;
     let selectedLevelArray = this.state[data];
-    console.log("dealing with levels" + levelChosen);
-
     this.setState({
       selected: selectedLevelArray,
+      currentLevel: data,
     });
     this.handleRandomisation(selectedLevelArray);
+  };
+
+  handleGrammarInput = (data) => {
+    // map out the grammar point thats needed and then store in state.
+    let selectedLevelKey = this.state.currentLevel;
+    let selectedLevelArray = this.state[selectedLevelKey];
+
+    // returns array of the selected grammar point
+    let selectedGrammarArray = selectedLevelArray.map((e) => {
+      let key = data;
+      return e[key];
+    });
+    console.log(selectedGrammarArray);
+
+    // converts from camel case to sentence case
+    let text = data.replace(/([A-Z])/g, " $1");
+    let newText = text.charAt(0).toUpperCase() + text.slice(1);
+
+    // set grammar in state
+    this.setState(
+      {
+        currentGrammar: newText,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
 
   handleRandomisation = (array) => {
@@ -101,8 +127,13 @@ class Main extends Component {
         <Header></Header>
         <Styles.MainContainer>
           <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
-          <GrammarPoint></GrammarPoint>
-          <CurrentSelection></CurrentSelection>
+          <GrammarPoint
+            handleGrammarChange={this.handleGrammarInput}
+          ></GrammarPoint>
+          <CurrentSelection
+            currentLevel={this.state.currentLevel}
+            currentGrammar={this.state.currentGrammar}
+          ></CurrentSelection>
           <Controller
             randomisedValue={this.state.randomised}
             handleTextInput={this.handleTextInput}

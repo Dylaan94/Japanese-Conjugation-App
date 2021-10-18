@@ -5,8 +5,16 @@ class CurrentSelection extends Component {
     super(props);
     this.state = {};
   }
-  render() {
-    return <div></div>;
+    render() {
+      const {currentLevel, currentGrammar } = this.props
+    return (
+      <div>
+        <h2>
+          {" "}
+          Current selection is {currentLevel}  {currentGrammar}{" "}
+        </h2>
+      </div>
+    );
   }
 }
 
