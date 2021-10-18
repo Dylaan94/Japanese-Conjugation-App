@@ -15,7 +15,7 @@ class Levels extends Component {
 
   handleSelection = (selection) => {
     let chosenLevel = selection;
-    this.props.handleLevelsChange(chosenLevel);
+      this.props.handleLevelsChange(chosenLevel);
   };
 
   render() {

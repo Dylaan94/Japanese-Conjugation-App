@@ -23,6 +23,8 @@ class Main extends Component {
       selected: [],
       randomised: { name: "テスト" },
       textInputValue: "",
+      currentlLevel: "",
+      currentGrammar: "",
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleRandomisation = this.handleRandomisation.bind(this);
@@ -33,30 +35,12 @@ class Main extends Component {
 
   handleLevelsInput = (data) => {
     let levelChosen = data;
-    let selectedLevelArray = [];
+    let selectedLevelArray = this.state[data];
     console.log("dealing with levels" + levelChosen);
 
-    if (levelChosen == "N5") {
-      selectedLevelArray = this.state.N5;
-      this.setState(
-        {
-          selected: selectedLevelArray,
-        },
-        () => {
-          console.log(this.state);
-        }
-      ); //setState is async so have to wait
-    } else if (levelChosen == "N4") {
-      selectedLevelArray = this.state.N4;
-      this.setState(
-        {
-          selected: selectedLevelArray,
-        },
-        () => {
-          console.log(this.state);
-        }
-      );
-    }
+    this.setState({
+      selected: selectedLevelArray,
+    });
     this.handleRandomisation(selectedLevelArray);
   };
 
