@@ -14,7 +14,7 @@ const HeaderMain = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  font-size: 3rem;
+
   font-weight: 900;
   height: 8vh;
   background: #343a40;
@@ -23,6 +23,7 @@ const HeaderMain = styled.div`
   border-bottom: 3px solid #212529;
   h1 {
     padding: 0.7em;
+    font-size: 4.5vmin;
   }
 `;
 
@@ -120,7 +121,6 @@ const GrammarPointsMain = styled.div`
   button {
     width: 80px;
     height: 30px;
-
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: bold;
@@ -140,6 +140,25 @@ const GrammarPointsMain = styled.div`
   }
 `;
 
+// CurrentSelections tyles
+
+const CurrentSelectionMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: orange;
+  width: 60vw;
+  max-width: 500px;
+  height: 8%;
+  border-radius: 5px;
+  h2 {
+    height: 50%;
+  }
+  h1 {
+    height: 50%;
+  }
+`;
+
 // Controller Styles
 const ControllerMain = styled.div`
   display: flex;
@@ -148,7 +167,7 @@ const ControllerMain = styled.div`
   .textDisplayDiv {
     margin-top: 3vh;
     background: #023047;
-    width: 60vw;
+    width: 80vw;
     height: 35vh;
     max-width: 500px;
     text-align: center;
@@ -165,13 +184,28 @@ const ControllerMain = styled.div`
 
 // Footer Styles
 
+const FooterMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 4vh;
+  width: 100vw;
+  background: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 3px solid #212529;
+  background: #343a40;
+`;
+
 const Styles = {
   MainDiv: MainDiv,
   MainContainer: MainContainer,
   HeaderMain: HeaderMain,
   LevelsMain: LevelsMain,
   GrammarPointsMain: GrammarPointsMain,
+  CurrentSelectionMain: CurrentSelectionMain,
   ControllerMain: ControllerMain,
+  FooterMain: FooterMain,
 };
 
 export default Styles;

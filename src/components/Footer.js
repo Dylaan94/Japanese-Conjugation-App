@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
+import Styles from "./styles/Styles";
+
 class Footer extends Component {
   render() {
-      return <div>
- 
-    </div>;
+    return (
+      <Styles.FooterMain>
+        <h1> Dylan Brain: </h1>
+      </Styles.FooterMain>
+    );
   }
 }
 

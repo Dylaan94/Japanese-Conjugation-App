@@ -140,8 +140,8 @@ class Main extends Component {
             checkTextInput={this.checkTextInput}
             value={this.state.textInputValue}
           ></Controller>
-          <Footer></Footer>
         </Styles.MainContainer>
+        <Footer></Footer>
       </Styles.MainDiv>
     );
   }
