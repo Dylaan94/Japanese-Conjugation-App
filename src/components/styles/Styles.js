@@ -37,7 +37,6 @@ const MainContainer = styled.div`
   background: #219ebc;
   border: 3px solid #8ecae6;
   border-radius: 25px;
-
   margin-bottom: 3vh;
   margin-top: 3vh;
 `;
@@ -75,13 +74,14 @@ const LevelsMain = styled.div`
     font-weight: bold;
     color: black;
     background: white;
-    border: 1px solid black;
-    box-shadow: 3px 3px 0 black, -3px -3px 0 black, -3px 3px 0 black,
-      3px -3px 0 black;
+    border: 1px solid #8ecae6;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0 #8ecae6, -3px -3px 0 #8ecae6, -3px 3px 0 #8ecae6,
+      3px -3px 0 #8ecae6;
     transition: 200ms ease-in-out;
   }
   button:hover {
-    box-shadow: 10px 3px 0 black, -10px -3px 0 black;
+    box-shadow: 10px 3px 0 #8ecae6, -10px -3px 0 #8ecae6;
   }
   button:focus {
     outline: none;
@@ -128,14 +128,15 @@ const GrammarPointsMain = styled.div`
     font-weight: bold;
     color: black;
     background: white;
-    border: 1px solid black;
-    box-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black,
-      2px -2px 0 black;
+    border: 1px solid #8ecae6;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 #8ecae6, -2px -2px 0 #8ecae6, -2px 2px 0 #8ecae6,
+      2px -2px 0 #8ecae6;
     transition: 200ms ease-in-out;
     text-align: center;
   }
   button:hover {
-    box-shadow: 6px 3px 0 black, -6px -3px 0 black;
+    box-shadow: 6px 3px 0 #8ecae6, -6px -3px 0 #8ecae6;
   }
   button:focus {
     outline: none;
@@ -155,9 +156,13 @@ const CurrentSelectionMain = styled.div`
   border-radius: 5px;
   h2 {
     height: 50%;
+    font-size: 1.5rem;
+    font-weight: 900;
   }
-  h1 {
+  h3 {
     height: 50%;
+    font-size: 1rem;
+    font-weight: 600;
   }
 `;
 
@@ -167,7 +172,7 @@ const ControllerMain = styled.div`
   flex-direction: column;
   align-items: center;
   .textDisplayDiv {
-    margin-top: 3vh;
+    margin-top: 2vh;
     background: #023047;
     width: 80vw;
     height: 35vh;
@@ -181,6 +186,17 @@ const ControllerMain = styled.div`
       font-weight: 900;
       color: white;
     }
+  }
+  input {
+    margin-top: 1vh;
+    width: 50vw;
+    max-width: 400px;
+    height: 4vh;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 900;
+    border: 2px solid #8ecae6;
   }
 `;
 

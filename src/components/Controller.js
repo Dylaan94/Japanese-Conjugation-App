@@ -19,8 +19,8 @@ class Controller extends Component {
             <div className = "inputDiv">
               <input
                 type="text"
-                placeholder="type your answer here"
-                value={value}
+                      value={value}
+                      placeholder= "type here"
                 onChange={(text) => {
                   handleTextInput(text);
                   checkTextInput();
