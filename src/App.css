@@ -21,19 +21,19 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+html {
+  height: 100%;
+}
 
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   font-family: 'Noto Sans JP', sans-serif;
   background: #4f6d7a
 }
-
-
-
 
 .App {
 

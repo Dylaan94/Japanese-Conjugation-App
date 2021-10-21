@@ -9,8 +9,9 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 
 ## Future Features
 
-- Use python to web scrape data to built complete vocab list
+- Use python to web scrape data to build complete vocab list
 - Grammar guides
+- Fully responsive
 
 ## Demo
 

@@ -5,6 +5,7 @@ const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 // Header Styles
@@ -14,12 +15,10 @@ const HeaderMain = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-
   font-weight: 900;
   height: 8vh;
   background: #343a40;
   color: white;
-  margin-bottom: 2vh;
   border-bottom: 3px solid #212529;
   h1 {
     padding: 0.7em;
@@ -38,6 +37,9 @@ const MainContainer = styled.div`
   background: #219ebc;
   border: 3px solid #8ecae6;
   border-radius: 25px;
+
+  margin-bottom: 3vh;
+  margin-top: 3vh;
 `;
 
 // Levels Styles
