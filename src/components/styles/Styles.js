@@ -39,6 +39,7 @@ const MainContainer = styled.div`
   border-radius: 25px;
   margin-bottom: 3vh;
   margin-top: 3vh;
+  
 `;
 
 // Levels Styles
@@ -149,7 +150,7 @@ const CurrentSelectionMain = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: orange;
+  background: #ffb700;
   width: 60vw;
   max-width: 500px;
   height: 8%;
