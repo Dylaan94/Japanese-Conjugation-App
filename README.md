@@ -15,4 +15,7 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 
 ## Demo
 
+- Click here for demo https://dylaan94.github.io/Japanese-Conjugation-App/
+- NOTE: Only N5 N4 and past tense currently work. Complete database is in progress
+
 ## How to install
