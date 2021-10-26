@@ -20,7 +20,7 @@ class CurrentSelection extends Component {
     const { currentLevel, currentGrammar } = this.props;
     return (
       <Styles.CurrentSelectionMain>
-        <h2>Current selection:</h2>
+        <h2>Current selection: </h2>
         <h3>
           {currentLevel} {this.convertGrammar(currentGrammar)}
         </h3>
