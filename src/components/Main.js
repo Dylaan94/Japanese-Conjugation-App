@@ -43,8 +43,7 @@ class Main extends Component {
     this.handleRandomisation(selectedLevelArray);
   };
 
-    handleGrammarInput = (data) => {
-
+  handleGrammarInput = (data) => {
     // map out the grammar point thats needed and then store in state.
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
@@ -56,14 +55,13 @@ class Main extends Component {
     });
     console.log(selectedGrammarArray);
 
-    // converts from camel case to sentence case // move this to inside the component
-    let text = data.replace(/([A-Z])/g, " $1");
-    let newText = text.charAt(0).toUpperCase() + text.slice(1);
+    // let text = data.replace(/([A-Z])/g, " $1");
+    // let newText = text.charAt(0).toUpperCase() + text.slice(1);
 
     // set grammar in state
     this.setState(
       {
-        currentGrammar: newText,
+        currentGrammar: data,
       },
       () => {
         console.log(this.state);
@@ -114,11 +112,12 @@ class Main extends Component {
     );
   };
 
-    checkTextInput = () => {
-      let selectedGrammar = this.state.selectedGrammar
+  checkTextInput = () => {
+    let selectedGrammar = this.state.currentGrammar;
+    console.log(selectedGrammar);
     // checks input value against randomly assigned verb and then runs
-    // need to add something that changes what type of form based off selection here
-    if (this.state.textInputValue == this.state.randomised.selectedGrammar) {
+    // checks selected grammar point too
+    if (this.state.textInputValue == this.state.randomised[selectedGrammar]) {
       this.handleCorrectInput();
     }
   };
