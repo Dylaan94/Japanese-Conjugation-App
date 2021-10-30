@@ -49,14 +49,12 @@ class Main extends Component {
     let selectedLevelArray = this.state[selectedLevelKey];
 
     // returns array of the selected grammar point
+    // is this doing anything??
     let selectedGrammarArray = selectedLevelArray.map((e) => {
       let key = data;
       return e[key];
     });
     console.log(selectedGrammarArray);
-
-    // let text = data.replace(/([A-Z])/g, " $1");
-    // let newText = text.charAt(0).toUpperCase() + text.slice(1);
 
     // set grammar in state
     this.setState(
