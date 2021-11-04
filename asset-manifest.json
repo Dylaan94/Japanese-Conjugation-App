@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Japanese-Conjugation-App/static/css/main.78b67a70.chunk.css",
-    "main.js": "/Japanese-Conjugation-App/static/js/main.d54364a7.chunk.js",
-    "main.js.map": "/Japanese-Conjugation-App/static/js/main.d54364a7.chunk.js.map",
-    "runtime-main.js": "/Japanese-Conjugation-App/static/js/runtime-main.5cdbd60d.js",
-    "runtime-main.js.map": "/Japanese-Conjugation-App/static/js/runtime-main.5cdbd60d.js.map",
-    "static/js/2.010a99bb.chunk.js": "/Japanese-Conjugation-App/static/js/2.010a99bb.chunk.js",
-    "static/js/2.010a99bb.chunk.js.map": "/Japanese-Conjugation-App/static/js/2.010a99bb.chunk.js.map",
-    "static/js/3.5ad334fd.chunk.js": "/Japanese-Conjugation-App/static/js/3.5ad334fd.chunk.js",
-    "static/js/3.5ad334fd.chunk.js.map": "/Japanese-Conjugation-App/static/js/3.5ad334fd.chunk.js.map",
+    "main.js": "/Japanese-Conjugation-App/static/js/main.4add7fe4.chunk.js",
+    "main.js.map": "/Japanese-Conjugation-App/static/js/main.4add7fe4.chunk.js.map",
+    "runtime-main.js": "/Japanese-Conjugation-App/static/js/runtime-main.24e6d6ff.js",
+    "runtime-main.js.map": "/Japanese-Conjugation-App/static/js/runtime-main.24e6d6ff.js.map",
+    "static/js/2.7c02726e.chunk.js": "/Japanese-Conjugation-App/static/js/2.7c02726e.chunk.js",
+    "static/js/2.7c02726e.chunk.js.map": "/Japanese-Conjugation-App/static/js/2.7c02726e.chunk.js.map",
+    "static/js/3.085ff720.chunk.js": "/Japanese-Conjugation-App/static/js/3.085ff720.chunk.js",
+    "static/js/3.085ff720.chunk.js.map": "/Japanese-Conjugation-App/static/js/3.085ff720.chunk.js.map",
     "index.html": "/Japanese-Conjugation-App/index.html",
     "static/css/main.78b67a70.chunk.css.map": "/Japanese-Conjugation-App/static/css/main.78b67a70.chunk.css.map",
-    "static/js/2.010a99bb.chunk.js.LICENSE.txt": "/Japanese-Conjugation-App/static/js/2.010a99bb.chunk.js.LICENSE.txt"
+    "static/js/2.7c02726e.chunk.js.LICENSE.txt": "/Japanese-Conjugation-App/static/js/2.7c02726e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5cdbd60d.js",
-    "static/js/2.010a99bb.chunk.js",
+    "static/js/runtime-main.24e6d6ff.js",
+    "static/js/2.7c02726e.chunk.js",
     "static/css/main.78b67a70.chunk.css",
-    "static/js/main.d54364a7.chunk.js"
+    "static/js/main.4add7fe4.chunk.js"
   ]
 }
