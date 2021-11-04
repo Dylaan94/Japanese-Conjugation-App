@@ -39,7 +39,6 @@ const MainContainer = styled.div`
   border-radius: 25px;
   margin-bottom: 3vh;
   margin-top: 3vh;
-  
 `;
 
 // Levels Styles
@@ -198,6 +197,13 @@ const ControllerMain = styled.div`
     font-size: 2em;
     font-weight: 900;
     border: 2px solid #8ecae6;
+  }
+  h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+    color: white;
+    font-weight: 900;
   }
 `;
 

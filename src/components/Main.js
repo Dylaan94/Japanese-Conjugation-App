@@ -10,6 +10,8 @@ import Levels from "./Levels";
 import JLPTData from "./JLPTData";
 // style imports
 import Styles from "./styles/Styles";
+// library imports
+import * as wanakana from "wanakana";
 
 class Main extends Component {
   constructor(props) {
@@ -88,6 +90,7 @@ class Main extends Component {
   handleTextInput = (e) => {
     // update state with new text value dynamically
     let value = e.target.value;
+
     this.setState(
       {
         textInputValue: value,
@@ -115,7 +118,10 @@ class Main extends Component {
     console.log(selectedGrammar);
     // checks input value against randomly assigned verb and then runs
     // checks selected grammar point too
-    if (this.state.textInputValue == this.state.randomised[selectedGrammar]) {
+    // trim is used to remove extra space added by wanakana library
+    if (
+      this.state.textInputValue.trim() == this.state.randomised[selectedGrammar]
+    ) {
       this.handleCorrectInput();
     }
   };
