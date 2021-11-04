@@ -6,6 +6,8 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 
 - Choose verbs by JLPT Level (constantly updating)
 - Choose grammar point (past tense, potential form, passive form etc.)
+- Text input automatically changes to Hiragana so no need to change input settings
+- Verb changes when correct when pressing space, allows for rapid practice
 
 ## Future Features
 
