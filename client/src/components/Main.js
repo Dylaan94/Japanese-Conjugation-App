@@ -39,9 +39,9 @@ class Main extends Component {
   }
 
   callAPItest = () => {
-    fetch("http://localhost:9000/testAPI")
-      .then(res => res.text())
-      .then(res => this.setState({ apiResponse: res }));
+    fetch("http://localhost:9000/jishoAPI")
+      .then(res => res.text()).then (res => console.log(JSON.parse(res)))
+    //  .then(res => this.setState({ apiResponse: res }));
   };
 
   handleLevelsInput = (data) => {
