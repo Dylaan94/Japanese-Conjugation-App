@@ -27,6 +27,7 @@ class Main extends Component {
       textInputValue: "",
       currentLevel: "",
       currentGrammar: "",
+      apiResponse: "",
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleGrammarInput = this.handleGrammarInput.bind(this);
@@ -34,7 +35,14 @@ class Main extends Component {
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleCorrectInput = this.handleCorrectInput.bind(this);
     this.checkTextInput = this.checkTextInput.bind(this);
+    this.callAPItest = this.callAPItest.bind(this);
   }
+
+  callAPItest = () => {
+    fetch("http://localhost:9000/testAPI")
+      .then(res => res.text())
+      .then(res => this.setState({ apiResponse: res }));
+  };
 
   handleLevelsInput = (data) => {
     let selectedLevelArray = this.state[data];
@@ -101,7 +109,7 @@ class Main extends Component {
     );
   };
 
-  // move into a single function 
+  // move into a single function
   handleCorrectInput = () => {
     let data = this.state.selected;
     this.setState(
@@ -127,6 +135,10 @@ class Main extends Component {
     }
   };
 
+  componentDidMount() {
+    this.callAPItest();
+  }
+
   render() {
     return (
       <Styles.MainDiv>
@@ -146,6 +158,7 @@ class Main extends Component {
             checkTextInput={this.checkTextInput}
             value={this.state.textInputValue}
           ></Controller>
+    {console.log(this.state.apiResponse)}
         </Styles.MainContainer>
         <Footer></Footer>
       </Styles.MainDiv>
