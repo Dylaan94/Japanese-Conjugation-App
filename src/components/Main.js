@@ -101,6 +101,7 @@ class Main extends Component {
     );
   };
 
+  // move into a single function 
   handleCorrectInput = () => {
     let data = this.state.selected;
     this.setState(
