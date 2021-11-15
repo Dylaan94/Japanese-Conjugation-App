@@ -136,7 +136,7 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    this.callAPItest();
+   // this.callAPItest();
   }
 
   render() {

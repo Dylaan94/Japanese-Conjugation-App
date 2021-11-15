@@ -4,7 +4,6 @@ let axios = require("axios");
 
 let n5Array = [];
 let promises = [];
-let callN5Verbs = function () {};
 
 // need to run a number of requests based on the number of pages.
 let pages = 7;
@@ -38,8 +37,10 @@ router.get("/", (req, res) => {
         })
     );
   }
+  Promise.all(promises).then(() => {
+    console.log(n5Array);
+    res.send(n5Array);
+  }); // need to put this inside the loop??
 });
-
-Promise.all(promises).then(() => console.log(n5Array)); // need to put this inside the loop??
 
 module.exports = router;
