@@ -4,11 +4,10 @@ let axios = require("axios");
 
 let n5Array = [];
 let promises = [];
-
-// need to run a number of requests based on the number of pages.
 let pages = 7;
 
 router.get("/", (req, res) => {
+  // i initialised to 1 as pages start at 1, iterates through set number of pages
   for (let i = 1; i < pages; i++) {
     let pageNumber = i;
     promises.push(
@@ -19,6 +18,7 @@ router.get("/", (req, res) => {
             "" // this selects all verbs on pageNumber
         )
         .then((response) => {
+          // create objects for each verb and add to array
           for (let i = 0; i < response.data.data.length; i++) {
             let verbObject = {
               name: response.data.data[i].japanese[0].word,
@@ -28,19 +28,14 @@ router.get("/", (req, res) => {
             };
             n5Array.push(verbObject);
           }
-
-          console.log(response.data.data);
-
-          let data = response.data.data;
-          console.log(n5Array);
-          //res.send(n5Array);
         })
     );
   }
+  // once all promises have returned, send to router
   Promise.all(promises).then(() => {
     console.log(n5Array);
     res.send(n5Array);
-  }); // need to put this inside the loop??
+  });
 });
 
 module.exports = router;

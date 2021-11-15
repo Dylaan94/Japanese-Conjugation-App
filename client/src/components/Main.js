@@ -17,7 +17,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      N5: JLPTData.N5,
+      N5: "",
       N4: JLPTData.N4,
       N3: JLPTData.N3,
       N2: JLPTData.N2,
@@ -35,14 +35,37 @@ class Main extends Component {
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleCorrectInput = this.handleCorrectInput.bind(this);
     this.checkTextInput = this.checkTextInput.bind(this);
-    this.callAPItest = this.callAPItest.bind(this);
+    // this.callAPItest = this.callAPItest.bind(this);
+    this.loadJLPTData = this.loadJLPTData.bind(this);
   }
 
-  callAPItest = () => {
-    fetch("http://localhost:9000/jishoAPI")
-      .then(res => res.text()).then (res => console.log(JSON.parse(res)))
-    //  .then(res => this.setState({ apiResponse: res }));
+  // calls all JLPT data from Jisho API
+  loadJLPTData = () => {
+    fetch("http://localhost:9000/n5Data")
+      .then((res) => res.text())
+      .then((res) => {
+        let data = JSON.parse(res);
+        this.setState(
+          {
+            N5: data,
+          },
+          () => {
+            console.log(this.state);
+          }
+        );
+      })
+      .catch(() => {
+        // error handling
+        console.log("error");
+      });
   };
+
+  // callAPItest = () => {
+  //   fetch("http://localhost:9000/jishoAPI")
+  //     .then((res) => res.text())
+  //     .then((res) => console.log(JSON.parse(res)));
+  //    .then(res => this.setState({ apiResponse: res }));
+  // };
 
   handleLevelsInput = (data) => {
     let selectedLevelArray = this.state[data];
@@ -136,7 +159,8 @@ class Main extends Component {
   };
 
   componentDidMount() {
-   // this.callAPItest();
+    // this.callAPItest();
+    this.loadJLPTData();
   }
 
   render() {
@@ -158,7 +182,7 @@ class Main extends Component {
             checkTextInput={this.checkTextInput}
             value={this.state.textInputValue}
           ></Controller>
-    {console.log(this.state.apiResponse)}
+          {console.log(this.state.apiResponse)}
         </Styles.MainContainer>
         <Footer></Footer>
       </Styles.MainDiv>

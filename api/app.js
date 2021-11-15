@@ -8,7 +8,7 @@ var cors = require("cors");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testAPIrouter = require("./routes/testAPI");
-var jishoAPIrouter = require("./routes/jishoAPI")
+var n5DataRouter = require("./routes/n5Data");
 
 var app = express();
 
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/testAPI", testAPIrouter);
-app.use("/jishoAPI", jishoAPIrouter)
+app.use("/n5Data", n5DataRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
