@@ -6,8 +6,7 @@ import GrammarPoint from "./GrammarPoint";
 import CurrentSelection from "./CurrentSelection";
 import Controller from "./Controller";
 import Levels from "./Levels";
-// data imports
-import JLPTData from "./JLPTData";
+
 // style imports
 import Styles from "./styles/Styles";
 // library imports
@@ -18,10 +17,10 @@ class Main extends Component {
     super(props);
     this.state = {
       N5: "",
-      N4: JLPTData.N4,
-      N3: JLPTData.N3,
-      N2: JLPTData.N2,
-      N1: JLPTData.N1,
+      N4: "",
+      N3: "",
+      N2: "",
+      N1: "",
       selected: [],
       randomised: { name: "テスト" },
       textInputValue: "",
@@ -35,29 +34,56 @@ class Main extends Component {
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleCorrectInput = this.handleCorrectInput.bind(this);
     this.checkTextInput = this.checkTextInput.bind(this);
-    // this.callAPItest = this.callAPItest.bind(this);
     this.loadJLPTData = this.loadJLPTData.bind(this);
   }
 
   // calls all JLPT data from Jisho API
   loadJLPTData = () => {
-    fetch("http://localhost:9000/n5Data")
-      .then((res) => res.text())
-      .then((res) => {
-        let data = JSON.parse(res);
+    // get all data first and then add to state
+    Promise.all([
+      fetch("http://localhost:9000/n5Data"),
+      fetch("http://localhost:9000/n4Data"),
+    ]).then((res) => {
+      // map through results and run test()
+      Promise.all(
+        res.map((res) => {
+          return res.text(); 
+        })
+        // organised into variables and parsed for storing in state
+      ).then((data) => {
+        let n5Data = JSON.parse(data[0]);
+        let n4Data = JSON.parse(data[1]);
         this.setState(
           {
-            N5: data,
+            N5: n5Data,
+            N4: n4Data,
           },
           () => {
             console.log(this.state);
           }
         );
-      })
-      .catch(() => {
-        // error handling
-        console.log("error");
       });
+    }).catch(() => {
+      console.log("error blud")
+    });
+
+    // fetch("http://localhost:9000/n5Data")
+    //   .then((res) => res.text())
+    //   .then((res) => {
+    //     let n5Data = JSON.parse(res);
+    //     this.setState(
+    //       {
+    //         N5: n5Data,
+    //       },
+    //       () => {
+    //         console.log(this.state);
+    //       }
+    //     );
+    //   })
+    //   .catch(() => {
+    //     // error handling
+    //     console.log("error");
+    //   });
   };
 
   // callAPItest = () => {
@@ -159,7 +185,6 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    // this.callAPItest();
     this.loadJLPTData();
   }
 
