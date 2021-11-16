@@ -43,29 +43,31 @@ class Main extends Component {
     Promise.all([
       fetch("http://localhost:9000/n5Data"),
       fetch("http://localhost:9000/n4Data"),
-    ]).then((res) => {
-      // map through results and run test()
-      Promise.all(
-        res.map((res) => {
-          return res.text(); 
-        })
-        // organised into variables and parsed for storing in state
-      ).then((data) => {
-        let n5Data = JSON.parse(data[0]);
-        let n4Data = JSON.parse(data[1]);
-        this.setState(
-          {
-            N5: n5Data,
-            N4: n4Data,
-          },
-          () => {
-            console.log(this.state);
-          }
-        );
+    ])
+      .then((res) => {
+        // map through results and run test()
+        Promise.all(
+          res.map((res) => {
+            return res.text();
+          })
+          // organised into variables and parsed for storing in state
+        ).then((data) => {
+          let n5Data = JSON.parse(data[0]);
+          let n4Data = JSON.parse(data[1]);
+          this.setState(
+            {
+              N5: n5Data,
+              N4: n4Data,
+            },
+            () => {
+              console.log(this.state);
+            }
+          );
+        });
+      })
+      .catch(() => {
+        console.log("error blud");
       });
-    }).catch(() => {
-      console.log("error blud")
-    });
 
     // fetch("http://localhost:9000/n5Data")
     //   .then((res) => res.text())
@@ -107,9 +109,20 @@ class Main extends Component {
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
 
-    
+    let currentVerb = this.state.randomised;
 
-
+    if (currentVerb.verbType.includes("Ichidan")) {
+      let slicedVerb = currentVerb.dictionaryForm.slice(0, -1)
+      let answer = slicedVerb + "た";
+      this.setState(
+        {
+          correctConjugation: answer,
+        },
+        () => {
+          console.log(this.state);
+        }
+      );
+    }
 
     // // returns array of the selected grammar point
     // // is this doing anything??
