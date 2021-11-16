@@ -26,7 +26,7 @@ class Main extends Component {
       textInputValue: "",
       currentLevel: "",
       currentGrammar: "",
-      apiResponse: "",
+      correctConjugation: "",
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleGrammarInput = this.handleGrammarInput.bind(this);
@@ -107,23 +107,27 @@ class Main extends Component {
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
 
-    // returns array of the selected grammar point
-    // is this doing anything??
-    let selectedGrammarArray = selectedLevelArray.map((e) => {
-      let key = data;
-      return e[key];
-    });
-    console.log(selectedGrammarArray);
+    
 
-    // set grammar in state
-    this.setState(
-      {
-        currentGrammar: data,
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+
+
+    // // returns array of the selected grammar point
+    // // is this doing anything??
+    // let selectedGrammarArray = selectedLevelArray.map((e) => {
+    //   let key = data;
+    //   return e[key];
+    // });
+    // console.log(selectedGrammarArray);
+
+    // // set grammar in state
+    // this.setState(
+    //   {
+    //     currentGrammar: data,
+    //   },
+    //   () => {
+    //     console.log(this.state);
+    //   }
+    // );
   };
 
   handleRandomisation = (array) => {
@@ -159,6 +163,7 @@ class Main extends Component {
   };
 
   // move into a single function
+  // when input is correct, call a new verb
   handleCorrectInput = () => {
     let data = this.state.selected;
     this.setState(

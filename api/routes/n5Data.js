@@ -26,7 +26,11 @@ router.get("/", (req, res) => {
               dictionaryForm: response.data.data[i].japanese[0].reading,
               verbType: response.data.data[i].senses[0].parts_of_speech[0],
             };
-            if (verbObject.verbType != "Noun") {
+            // only push verbs
+            if (
+              verbObject.verbType.includes("verb") &&
+              !verbObject.verbType.includes("Adverb")
+            ) {
               n5Array.push(verbObject);
             }
           }
