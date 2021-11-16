@@ -13,6 +13,7 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 ## Challenges
 
 - Battled with whether or not to call all JLPT data at once or based on selected level
+- Learned a lot about promises
 
 ## Future Features
 

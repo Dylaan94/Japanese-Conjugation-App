@@ -10,7 +10,10 @@ var usersRouter = require("./routes/users");
 var testAPIrouter = require("./routes/testAPI");
 
 //JLPT Data Routers
-var n4DataRouter = require("./routes/n4Data")
+// var n1DataRouter = require("./routes/n1Data");
+// var n2DataRouter = require("./routes/n2Data");
+// var n3DataRouter = require("./routes/n3Data");
+var n4DataRouter = require("./routes/n4Data");
 var n5DataRouter = require("./routes/n5Data");
 
 var app = express();
@@ -31,8 +34,12 @@ app.use("/users", usersRouter);
 app.use("/testAPI", testAPIrouter);
 
 // JLPT Use
+// app.use("/n1Data", n1DataRouter);
+// app.use("/n2Data", n2DataRouter);
+// app.use("/n3Data", n3DataRouter);
 app.use("/n4Data", n4DataRouter);
 app.use("/n5Data", n5DataRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

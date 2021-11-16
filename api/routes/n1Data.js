@@ -2,9 +2,9 @@ let express = require("express");
 let router = express.Router();
 let axios = require("axios");
 
-let n5Array = [];
+let n1Array = [];
 let promises = [];
-let pages = 7;
+let pages = "";
 
 router.get("/", (req, res) => {
   // i initialised to 1 as pages start at 1, iterates through set number of pages
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     promises.push(
       axios
         .get(
-          "https://jisho.org/api/v1/search/words?keyword=%23verb%20%23jlpt-n5&page=" +
+          "https://jisho.org/api/v1/search/words?keyword=%23verb%20%23jlpt-n4&page=" +
             pageNumber +
             "" // this selects all verbs on pageNumber
         )
@@ -26,17 +26,15 @@ router.get("/", (req, res) => {
               dictionaryForm: response.data.data[i].japanese[0].reading,
               verbType: response.data.data[i].senses[0].parts_of_speech[0],
             };
-            if (verbObject.verbType != "Noun") {
-              n5Array.push(verbObject);
-            }
+            n1Array.push(verbObject);
           }
         })
     );
   }
   // once all promises have returned, send to router
   Promise.all(promises).then(() => {
-    console.log(n5Array);
-    res.send(n5Array);
+    console.log(n1Array);
+    res.send(n1Array);
   });
 });
 

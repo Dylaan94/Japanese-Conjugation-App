@@ -26,7 +26,9 @@ router.get("/", (req, res) => {
               dictionaryForm: response.data.data[i].japanese[0].reading,
               verbType: response.data.data[i].senses[0].parts_of_speech[0],
             };
-            n4Array.push(verbObject);
+            if (verbObject.verbType != "Noun") {
+              n4Array.push(verbObject);
+            }
           }
         })
     );
