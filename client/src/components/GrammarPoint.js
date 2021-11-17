@@ -24,8 +24,9 @@ class GrammarPoint extends Component {
 
   handleSelection = (selection) => {
     let chosenGrammar = selection;
+    let answer = this.state.correctConjugation
     console.log(chosenGrammar);
-    this.props.handleGrammarChange(chosenGrammar)
+    this.props.handleGrammarChange(chosenGrammar, answer)
   };
 
   handlePastForm = (selection) => {

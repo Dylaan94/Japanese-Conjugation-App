@@ -86,8 +86,8 @@ class Main extends Component {
     this.handleRandomisation(selectedLevelArray);
   };
 
-  handleGrammarInput = (data) => {
-    console.log(data) // correctly gets grammar type from component
+  handleGrammarInput = (chosenGrammar, answer) => {
+    console.log(chosenGrammar) // correctly gets grammar type from component
     // map out the grammar point thats needed and then store in state.
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
@@ -119,7 +119,8 @@ class Main extends Component {
     // set grammar in state
     this.setState(
       {
-        currentGrammar: data,
+        currentGrammar: chosenGrammar,
+        correctConjugation: answer,
       },
       () => {
         console.log(this.state);
