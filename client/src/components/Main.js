@@ -26,7 +26,7 @@ class Main extends Component {
       textInputValue: "",
       currentLevel: "",
       currentGrammar: "",
-      correctConjugation: "",
+      correctConjugation: "", // recieve this from grammar point component
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleGrammarInput = this.handleGrammarInput.bind(this);
@@ -68,24 +68,6 @@ class Main extends Component {
       .catch(() => {
         console.log("error blud");
       });
-
-    // fetch("http://localhost:9000/n5Data")
-    //   .then((res) => res.text())
-    //   .then((res) => {
-    //     let n5Data = JSON.parse(res);
-    //     this.setState(
-    //       {
-    //         N5: n5Data,
-    //       },
-    //       () => {
-    //         console.log(this.state);
-    //       }
-    //     );
-    //   })
-    //   .catch(() => {
-    //     // error handling
-    //     console.log("error");
-    //   });
   };
 
   // callAPItest = () => {
@@ -105,24 +87,26 @@ class Main extends Component {
   };
 
   handleGrammarInput = (data) => {
+    console.log(data) // correctly gets grammar type from component
     // map out the grammar point thats needed and then store in state.
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
 
-    let currentVerb = this.state.randomised;
+    // all of this logic needs to be moved into grammarpoint component
+    // let currentVerb = this.state.randomised;
 
-    if (currentVerb.verbType.includes("Ichidan")) {
-      let slicedVerb = currentVerb.dictionaryForm.slice(0, -1)
-      let answer = slicedVerb + "た";
-      this.setState(
-        {
-          correctConjugation: answer,
-        },
-        () => {
-          console.log(this.state);
-        }
-      );
-    }
+    // if (currentVerb.verbType.includes("Ichidan")) {
+    //   let slicedVerb = currentVerb.dictionaryForm.slice(0, -1)
+    //   let answer = slicedVerb + "た";
+    //   this.setState(
+    //     {
+    //       correctConjugation: answer,
+    //     },
+    //     () => {
+    //       console.log(this.state);
+    //     }
+    //   );
+    // }
 
     // // returns array of the selected grammar point
     // // is this doing anything??
@@ -132,15 +116,15 @@ class Main extends Component {
     // });
     // console.log(selectedGrammarArray);
 
-    // // set grammar in state
-    // this.setState(
-    //   {
-    //     currentGrammar: data,
-    //   },
-    //   () => {
-    //     console.log(this.state);
-    //   }
-    // );
+    // set grammar in state
+    this.setState(
+      {
+        currentGrammar: data,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
 
   handleRandomisation = (array) => {
@@ -214,6 +198,7 @@ class Main extends Component {
           <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
           <GrammarPoint
             handleGrammarChange={this.handleGrammarInput}
+            randomisedValue = {this.state.randomised}
           ></GrammarPoint>
           <CurrentSelection
             currentLevel={this.state.currentLevel}

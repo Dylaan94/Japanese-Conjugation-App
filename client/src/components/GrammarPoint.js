@@ -4,9 +4,19 @@ import Styles from "./styles/Styles";
 class GrammarPoint extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      correctConjugation: "",
+    };
 
     this.handleSelection = this.handleSelection.bind(this);
+    this.handlePastForm = this.handlePastForm.bind(this);
+    this.handlePotentialForm = this.handlePotentialForm.bind(this);
+    this.handlePassiveForm = this.handlePastForm.bind(this);
+    this.handleCausativeForm = this.handleCausativeForm.bind(this);
+    this.handleTeForm = this.handleTeForm.bind(this);
+    this.handleMasuForm = this.handleMasuForm.bind(this);
+    this.handleVolitionalForm = this.handleVolitionalForm.bind(this);
+    this.handleImperitiveForm = this.handleImperitiveForm.bind(this);
   }
 
   // takes string that is passed in onClick and
@@ -14,9 +24,55 @@ class GrammarPoint extends Component {
 
   handleSelection = (selection) => {
     let chosenGrammar = selection;
-      console.log(chosenGrammar);
-      this.props.handleGrammarChange(chosenGrammar)
+    console.log(chosenGrammar);
+    this.props.handleGrammarChange(chosenGrammar)
   };
+
+  handlePastForm = (selection) => {
+    console.log(selection)
+    let currentVerb = this.props.randomisedValue
+    if (currentVerb.verbType.includes("Ichidan")) {
+      let slicedVerb = currentVerb.dictionaryForm.slice(0, -1)
+      let answer = slicedVerb + "た";
+      this.setState(
+        {
+          correctConjugation: answer,
+        },
+        () => {
+          console.log(this.state);
+          this.handleSelection(selection); // updates state.currentGrammar in main
+        }
+      );
+    }
+  }
+
+  handlePotentialForm = () => {
+
+  }
+
+  handlePassiveForm = () => {
+
+  }
+
+  handleCausativeForm = () => {
+
+  }
+
+  handleTeForm = () => {
+
+  }
+
+  handleMasuForm = () => {
+
+  }
+
+  handleVolitionalForm = () => {
+
+  }
+
+  handleImperitiveForm = () => {
+
+  }
 
   render() {
     return (
@@ -24,7 +80,10 @@ class GrammarPoint extends Component {
         <h2> Conjugation Form </h2>
         <ul>
           <li>
-            <button onClick={this.handleSelection.bind(this, "pastForm")}>
+            <button onClick={
+              //this.handleSelection.bind(this, "pastForm")
+              this.handlePastForm.bind(this, "pastForm")
+            }>
               past
             </button>
           </li>
