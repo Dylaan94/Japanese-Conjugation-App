@@ -92,6 +92,8 @@ class Main extends Component {
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
 
+
+
     // // returns array of the selected grammar point
     // // is this doing anything??
     // let selectedGrammarArray = selectedLevelArray.map((e) => {
@@ -151,9 +153,11 @@ class Main extends Component {
     this.setState(
       {
         textInputValue: "", // reset input value
+        correctConjugation: "", // reset conjugation
       },
       () => {
         this.handleRandomisation(data); // call new verb
+        // need to call new answer from grammar component here....
       }
     );
   };
@@ -164,8 +168,10 @@ class Main extends Component {
     // checks input value against randomly assigned verb and then runs
     // checks selected grammar point too
     // trim is used to remove extra space added by wanakana library
-    if (
-      this.state.textInputValue.trim() == this.state.randomised[selectedGrammar]
+    if (this.state.textInputValue === "" && this.state.correctConjugation === "") {
+      return
+    } else if (
+      this.state.textInputValue.trim() == this.state.correctConjugation
     ) {
       this.handleCorrectInput();
     }
