@@ -4,11 +4,9 @@ import Styles from "./styles/Styles";
 class GrammarPoint extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      correctConjugation: "",
-    };
+    this.state = {};
 
-    this.handleSelection = this.handleSelection.bind(this);
+    // this.handleSelection = this.handleSelection.bind(this);
     this.handlePastForm = this.handlePastForm.bind(this);
     this.handlePotentialForm = this.handlePotentialForm.bind(this);
     this.handlePassiveForm = this.handlePastForm.bind(this);
@@ -19,61 +17,55 @@ class GrammarPoint extends Component {
     this.handleImperitiveForm = this.handleImperitiveForm.bind(this);
   }
 
-  // takes string that is passed in onClick and
-  // will be dealt with in the Main component
-
-  handleSelection = (selection) => {
-    let chosenGrammar = selection;
-    let answer = this.state.correctConjugation
-    console.log(chosenGrammar);
-    this.props.handleGrammarChange(chosenGrammar, answer)
+  // takes string that is passed in onClick
+  // creates answer and sends both to Main
+  handlePastForm = (selection) => {
+    let currentVerb = this.props.randomisedValue;
+    let slicedVerb = currentVerb.dictionaryForm.slice(0, -1);
+    let answer = "";
+    console.log(selection);
+    // multiple types of ichidan verb so used indexOf
+    if (currentVerb.verbType.indexOf("Ichidan verb") !== -1) {
+      answer = slicedVerb + "た";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with su ending") {
+      answer = slicedVerb + "した";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with ku ending") {
+      answer = slicedVerb + "いた";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (
+      currentVerb.verbType === "Godan verb with mu ending" ||
+      currentVerb.verbType === "Godan verb with bu ending"
+    ) {
+      answer = slicedVerb + "んだ";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with gu ending") {
+      answer = slicedVerb + "いだ";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with bu ending") {
+      answer = slicedVerb + "んだ";
+      this.props.handleGrammarChange(selection, answer);
+    } else {
+      // covers godan ru, u, tsu and aru special class
+      answer = slicedVerb + "った";
+      this.props.handleGrammarChange(selection, answer);
+    }
   };
 
-  handlePastForm = (selection) => {
-    console.log(selection)
-    let currentVerb = this.props.randomisedValue
-    if (currentVerb.verbType.includes("Ichidan")) {
-      let slicedVerb = currentVerb.dictionaryForm.slice(0, -1)
-      let answer = slicedVerb + "た";
-      this.setState(
-        {
-          correctConjugation: answer,
-        },
-        () => {
-          console.log(this.state);
-          this.handleSelection(selection); // updates state.currentGrammar in main
-        }
-      );
-    }
-  }
+  handlePotentialForm = () => {};
 
-  handlePotentialForm = () => {
+  handlePassiveForm = () => {};
 
-  }
+  handleCausativeForm = () => {};
 
-  handlePassiveForm = () => {
+  handleTeForm = () => {};
 
-  }
+  handleMasuForm = () => {};
 
-  handleCausativeForm = () => {
+  handleVolitionalForm = () => {};
 
-  }
-
-  handleTeForm = () => {
-
-  }
-
-  handleMasuForm = () => {
-
-  }
-
-  handleVolitionalForm = () => {
-
-  }
-
-  handleImperitiveForm = () => {
-
-  }
+  handleImperitiveForm = () => {};
 
   render() {
     return (
@@ -81,49 +73,37 @@ class GrammarPoint extends Component {
         <h2> Conjugation Form </h2>
         <ul>
           <li>
-            <button onClick={
-              //this.handleSelection.bind(this, "pastForm")
-              this.handlePastForm.bind(this, "pastForm")
-            }>
+            <button
+              onClick={
+                //this.handleSelection.bind(this, "pastForm")
+                this.handlePastForm.bind(this, "pastForm")
+              }
+            >
               past
             </button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "potentialForm")}>
-              potential
-            </button>
+            <button>potential</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "passiveForm")}>
-              passive
-            </button>
+            <button>passive</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "causativeForm")}>
-              causative
-            </button>
+            <button>causative</button>
           </li>
         </ul>
         <ul>
           <li>
-            <button onClick={this.handleSelection.bind(this, "teForm")}>
-              te
-            </button>
+            <button>te</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "masuForm")}>
-              masu
-            </button>
+            <button>masu</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "volitionalForm")}>
-              volitional
-            </button>
+            <button>volitional</button>
           </li>
           <li>
-            <button onClick={this.handleSelection.bind(this, "volitionalForm")}>
-              imperitive
-            </button>
+            <button>imperitive</button>
           </li>
         </ul>
       </Styles.GrammarPointsMain>

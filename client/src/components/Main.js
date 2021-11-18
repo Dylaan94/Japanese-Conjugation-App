@@ -92,22 +92,6 @@ class Main extends Component {
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
 
-    // all of this logic needs to be moved into grammarpoint component
-    // let currentVerb = this.state.randomised;
-
-    // if (currentVerb.verbType.includes("Ichidan")) {
-    //   let slicedVerb = currentVerb.dictionaryForm.slice(0, -1)
-    //   let answer = slicedVerb + "た";
-    //   this.setState(
-    //     {
-    //       correctConjugation: answer,
-    //     },
-    //     () => {
-    //       console.log(this.state);
-    //     }
-    //   );
-    // }
-
     // // returns array of the selected grammar point
     // // is this doing anything??
     // let selectedGrammarArray = selectedLevelArray.map((e) => {
