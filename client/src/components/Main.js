@@ -158,6 +158,9 @@ class Main extends Component {
       () => {
         this.handleRandomisation(data); // call new verb
         // need to call new answer from grammar component here....
+        // something that passes state from grammar component back to main
+        // recall the function inside grammar component based on what grammar type is selected
+        // if grammar type is past tense, call handlepastFormg
       }
     );
   };
