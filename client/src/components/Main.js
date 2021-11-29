@@ -27,6 +27,7 @@ class Main extends Component {
       currentLevel: "",
       currentGrammar: "",
       correctConjugation: "", // recieve this from grammar point component
+      grammarRefreshReq: false,
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleGrammarInput = this.handleGrammarInput.bind(this);
@@ -87,12 +88,10 @@ class Main extends Component {
   };
 
   handleGrammarInput = (chosenGrammar, answer) => {
-    console.log(chosenGrammar) // correctly gets grammar type from component
+    console.log(chosenGrammar); // correctly gets grammar type from component
     // map out the grammar point thats needed and then store in state.
     let selectedLevelKey = this.state.currentLevel;
     let selectedLevelArray = this.state[selectedLevelKey];
-
-
 
     // // returns array of the selected grammar point
     // // is this doing anything??
@@ -103,6 +102,7 @@ class Main extends Component {
     // console.log(selectedGrammarArray);
 
     // set grammar in state
+
     this.setState(
       {
         currentGrammar: chosenGrammar,
@@ -117,15 +117,20 @@ class Main extends Component {
   handleRandomisation = (array) => {
     // adds random item from selected level arary into randomised
     // randomised is then sent to the controller which displays the word
+    // forces grammarPoint component to call function again to create new answer
     const min = 0;
     const max = array.length;
     const random = Math.floor(min + Math.random() * (max - min));
     this.setState(
       {
         randomised: array[random],
+        grammarRefreshReq: true, // refresh grammar component to get new answer
       },
       () => {
         console.log(this.state);
+        this.setState({
+          grammarRefreshReq: false, // reset to false
+        });
       }
     );
     console.log(random);
@@ -157,10 +162,6 @@ class Main extends Component {
       },
       () => {
         this.handleRandomisation(data); // call new verb
-        // need to call new answer from grammar component here....
-        // something that passes state from grammar component back to main
-        // recall the function inside grammar component based on what grammar type is selected
-        // if grammar type is past tense, call handlepastFormg
       }
     );
   };
@@ -171,8 +172,11 @@ class Main extends Component {
     // checks input value against randomly assigned verb and then runs
     // checks selected grammar point too
     // trim is used to remove extra space added by wanakana library
-    if (this.state.textInputValue === "" && this.state.correctConjugation === "") {
-      return
+    if (
+      this.state.textInputValue === "" &&
+      this.state.correctConjugation === ""
+    ) {
+      return;
     } else if (
       this.state.textInputValue.trim() == this.state.correctConjugation
     ) {
@@ -192,7 +196,9 @@ class Main extends Component {
           <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
           <GrammarPoint
             handleGrammarChange={this.handleGrammarInput}
-            randomisedValue = {this.state.randomised}
+            randomisedValue={this.state.randomised}
+            currentGrammar={this.state.currentGrammar}
+            grammarRefreshReq={this.state.grammarRefreshReq}
           ></GrammarPoint>
           <CurrentSelection
             currentLevel={this.state.currentLevel}

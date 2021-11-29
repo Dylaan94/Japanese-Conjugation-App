@@ -4,9 +4,10 @@ import Styles from "./styles/Styles";
 class GrammarPoint extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-
-    // this.handleSelection = this.handleSelection.bind(this);
+    this.state = {
+      selection: "",
+    };
+    this.handleSelection = this.handleSelection.bind(this);
     this.handlePastForm = this.handlePastForm.bind(this);
     this.handlePotentialForm = this.handlePotentialForm.bind(this);
     this.handlePassiveForm = this.handlePastForm.bind(this);
@@ -15,11 +16,45 @@ class GrammarPoint extends Component {
     this.handleMasuForm = this.handleMasuForm.bind(this);
     this.handleVolitionalForm = this.handleVolitionalForm.bind(this);
     this.handleImperitiveForm = this.handleImperitiveForm.bind(this);
+    this.checkRefreshStatus = this.checkRefreshStatus.bind(this);
   }
+
+  // takes in refresh status from main state
+  // calls function again to generate new answer
+  checkRefreshStatus = () => {
+    if (
+      this.props.grammarRefreshReq === true &&
+      this.state.selection === "pastForm"
+    ) {
+      let selection = this.state.selection;
+      this.handlePastForm(selection);
+    }
+  };
+
+  handleSelection = (selection) => {
+    this.setState(
+      {
+        selection: selection,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
 
   // takes string that is passed in onClick
   // creates answer and sends both to Main
   handlePastForm = (selection) => {
+    // set grammar point into state for refresh checking
+    this.setState(
+      {
+        selection: selection,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+
     let currentVerb = this.props.randomisedValue;
     let slicedVerb = currentVerb.dictionaryForm.slice(0, -1);
     let answer = "";
@@ -70,15 +105,11 @@ class GrammarPoint extends Component {
   render() {
     return (
       <Styles.GrammarPointsMain>
+        {this.checkRefreshStatus()}
         <h2> Conjugation Form </h2>
         <ul>
           <li>
-            <button
-              onClick={
-                //this.handleSelection.bind(this, "pastForm")
-                this.handlePastForm.bind(this, "pastForm")
-              }
-            >
+            <button onClick={this.handlePastForm.bind(this, "pastForm")}>
               past
             </button>
           </li>
