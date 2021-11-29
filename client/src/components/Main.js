@@ -27,7 +27,7 @@ class Main extends Component {
       currentLevel: "",
       currentGrammar: "",
       correctConjugation: "", // recieve this from grammar point component
-      grammarRefreshReq: false,
+      grammarRefreshReq: false, // when true generates new answer
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleGrammarInput = this.handleGrammarInput.bind(this);

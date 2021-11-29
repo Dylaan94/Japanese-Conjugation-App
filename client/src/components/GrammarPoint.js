@@ -10,7 +10,7 @@ class GrammarPoint extends Component {
     this.handleSelection = this.handleSelection.bind(this);
     this.handlePastForm = this.handlePastForm.bind(this);
     this.handlePotentialForm = this.handlePotentialForm.bind(this);
-    this.handlePassiveForm = this.handlePastForm.bind(this);
+    this.handlePassiveForm = this.handlePassiveForm.bind(this);
     this.handleCausativeForm = this.handleCausativeForm.bind(this);
     this.handleTeForm = this.handleTeForm.bind(this);
     this.handleMasuForm = this.handleMasuForm.bind(this);
@@ -28,6 +28,30 @@ class GrammarPoint extends Component {
     ) {
       let selection = this.state.selection;
       this.handlePastForm(selection);
+    } else if (
+      this.props.grammarRefreshReq === true &&
+      this.state.selection === "potentialForm"
+    ) {
+      let selection = this.state.selection;
+      this.handlePotentialForm(selection);
+    } else if (
+      this.props.grammarRefreshReq === true &&
+      this.state.selection === "passiveForm"
+    ) {
+      let selection = this.state.selection;
+      this.handlePassiveForm(selection);
+    } else if (
+      this.props.grammarRefreshReq === true &&
+      this.state.selection === "causativeForm"
+    ) {
+      let selection = this.state.selection;
+      this.handleCausativeForm(selection);
+    } else if (
+      this.props.grammarRefreshReq === true &&
+      this.state.selection === "teForm"
+    ) {
+      let selection = this.state.selection;
+      this.handleTeForm(selection);
     }
   };
 
@@ -94,7 +118,49 @@ class GrammarPoint extends Component {
 
   handleCausativeForm = () => {};
 
-  handleTeForm = () => {};
+  handleTeForm = (selection) => {
+    // set grammar point into state for refresh checking
+    this.setState(
+      {
+        selection: selection,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+
+    let currentVerb = this.props.randomisedValue;
+    let slicedVerb = currentVerb.dictionaryForm.slice(0, -1);
+    let answer = "";
+    console.log(selection);
+    // multiple types of ichidan verb so used indexOf
+    if (currentVerb.verbType.indexOf("Ichidan verb") !== -1) {
+      answer = slicedVerb + "て";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with su ending") {
+      answer = slicedVerb + "して";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with ku ending") {
+      answer = slicedVerb + "いて";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (
+      currentVerb.verbType === "Godan verb with mu ending" ||
+      currentVerb.verbType === "Godan verb with bu ending"
+    ) {
+      answer = slicedVerb + "んで";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with gu ending") {
+      answer = slicedVerb + "いで";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with bu ending") {
+      answer = slicedVerb + "んで";
+      this.props.handleGrammarChange(selection, answer);
+    } else {
+      // covers godan ru, u, tsu and aru special class
+      answer = slicedVerb + "って";
+      this.props.handleGrammarChange(selection, answer);
+    }
+  };
 
   handleMasuForm = () => {};
 
@@ -125,7 +191,7 @@ class GrammarPoint extends Component {
         </ul>
         <ul>
           <li>
-            <button>te</button>
+            <button onClick={this.handleTeForm.bind(this, "teForm")}>te</button>
           </li>
           <li>
             <button>masu</button>
