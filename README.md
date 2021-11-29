@@ -15,12 +15,17 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 - Battled with whether or not to call all JLPT data at once or based on selected level
 - Creating the logic for checking each grammar point
 - Learned a lot about promises
+- Struggled with learning how to get the grammar point component to generate a new answer without refs
 
 ## Future Features
 
 - Grammar guides
 - Fully responsive
 - Scorecard 
+
+## Notes
+ 
+- Currently potential form only accepts grammatically correct masu stem + られる　but will update in the future to add colloquial but largely accepted masu stem + れる
 
 ## Demo
 
