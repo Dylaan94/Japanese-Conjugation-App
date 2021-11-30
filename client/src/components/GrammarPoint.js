@@ -59,7 +59,7 @@ class GrammarPoint extends Component {
       let selection = this.state.selection;
       this.handleMasuForm(selection);
     }
-  }
+  };
 
   handleSelection = (selection) => {
     this.setState(
@@ -119,59 +119,112 @@ class GrammarPoint extends Component {
   };
 
   handlePotentialForm = (selection) => {
-     this.setState(
-       {
-         selection: selection,
-       },
-       () => {
-         console.log(this.state);
-       }
-     );
-    
-     let currentVerb = this.props.randomisedValue;
-     let slicedVerb = currentVerb.dictionaryForm.slice(0, -1);
-     let answer = "";
-     console.log(selection);
-     // multiple types of ichidan verb so used indexOf
-     if (currentVerb.verbType.indexOf("Ichidan verb") !== -1) {
-       answer = slicedVerb + "られる";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with su ending") {
-       answer = slicedVerb + "せる";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with ku ending") {
-       answer = slicedVerb + "ける";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with mu ending") {
-       answer = slicedVerb + "める";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with gu ending") {
-       answer = slicedVerb + "げる";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with bu ending") {
-       answer = slicedVerb + "べる";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with ru ending") {
-       answer = slicedVerb + "れる";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with u ending") {
-       answer = slicedVerb + "える";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb with tsu ending") {
-       answer = slicedVerb + "てる";
-       this.props.handleGrammarChange(selection, answer);
-     } else if (currentVerb.verbType === "Godan verb - Iku/Yuku special class") {
-       // covers iku - to go 
-       answer = slicedVerb + "ける";
-       this.props.handleGrammarChange(selection, answer);
-     } else {
-       // covers aru special class
-       answer = slicedVerb + "れる";
-       this.props.handleGrammarChange(selection, answer);
-     }
+    this.setState(
+      {
+        selection: selection,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+
+    let currentVerb = this.props.randomisedValue;
+    let slicedVerb = currentVerb.dictionaryForm.slice(0, -1);
+    let answer = "";
+    console.log(selection);
+    // multiple types of ichidan verb so used indexOf
+    if (currentVerb.verbType.indexOf("Ichidan verb") !== -1) {
+      answer = slicedVerb + "られる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with su ending") {
+      answer = slicedVerb + "せる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with ku ending") {
+      answer = slicedVerb + "ける";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with mu ending") {
+      answer = slicedVerb + "める";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with gu ending") {
+      answer = slicedVerb + "げる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with bu ending") {
+      answer = slicedVerb + "べる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with ru ending") {
+      answer = slicedVerb + "れる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with u ending") {
+      answer = slicedVerb + "える";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with tsu ending") {
+      answer = slicedVerb + "てる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb - Iku/Yuku special class") {
+      // covers iku - to go
+      answer = slicedVerb + "ける";
+      this.props.handleGrammarChange(selection, answer);
+    } else {
+      // covers aru special class
+      answer = slicedVerb + "れる";
+      this.props.handleGrammarChange(selection, answer);
+    }
   };
 
-  handlePassiveForm = () => {};
+  handlePassiveForm = (selection) => {
+    this.setState(
+      {
+        selection: selection,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+    let currentVerb = this.props.randomisedValue;
+    let slicedVerb = currentVerb.dictionaryForm.slice(0, -1);
+    let answer = "";
+    console.log(selection);
+    // multiple types of ichidan verb so used indexOf
+    if (
+      currentVerb.verbType.indexOf("Ichidan verb") !== -1 &&
+      currentVerb.verbType !== "Ichidan verb - kureru special class"
+    ) {
+      answer = slicedVerb + "られる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Ichidan verb - kureru special class") {
+      // special check for 来る
+      answer = "こられる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with su ending") {
+      answer = slicedVerb + "される";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with ku ending") {
+      answer = slicedVerb + "かれる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with mu ending") {
+      answer = slicedVerb + "まれる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with gu ending") {
+      answer = slicedVerb + "がれる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with bu ending") {
+      answer = slicedVerb + "ばれる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with ru ending") {
+      answer = slicedVerb + "られる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with u ending") {
+      answer = slicedVerb + "われる";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb with tsu ending") {
+      answer = slicedVerb + "たれる";
+      this.props.handleGrammarChange(selection, answer);
+    } else {
+      // covers aru special class, need to find a way to exclude ある
+      answer = slicedVerb + "りえる";
+      this.props.handleGrammarChange(selection, answer);
+    }
+  };
 
   handleCausativeForm = () => {};
 
@@ -263,7 +316,7 @@ class GrammarPoint extends Component {
       this.props.handleGrammarChange(selection, answer);
     } else {
       // covers aru special class
-      answer = slicedVerb + "ります"
+      answer = slicedVerb + "ります";
       this.props.handleGrammarChange(selection, answer);
     }
   };
@@ -284,10 +337,16 @@ class GrammarPoint extends Component {
             </button>
           </li>
           <li>
-            <button onClick = {this.handlePotentialForm.bind(this, "potentialForm")}>potential</button>
+            <button
+              onClick={this.handlePotentialForm.bind(this, "potentialForm")}
+            >
+              potential
+            </button>
           </li>
           <li>
-            <button>passive</button>
+            <button onClick={this.handlePassiveForm.bind(this, "passiveForm")}>
+              passive
+            </button>
           </li>
           <li>
             <button>causative</button>

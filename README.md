@@ -22,6 +22,8 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 - Grammar guides
 - Fully responsive
 - Scorecard 
+- More conjugations
+- Ability to chain together grammar points 
 
 ## Notes
  

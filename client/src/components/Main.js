@@ -88,21 +88,7 @@ class Main extends Component {
   };
 
   handleGrammarInput = (chosenGrammar, answer) => {
-    console.log(chosenGrammar); // correctly gets grammar type from component
-    // map out the grammar point thats needed and then store in state.
-    let selectedLevelKey = this.state.currentLevel;
-    let selectedLevelArray = this.state[selectedLevelKey];
-
-    // // returns array of the selected grammar point
-    // // is this doing anything??
-    // let selectedGrammarArray = selectedLevelArray.map((e) => {
-    //   let key = data;
-    //   return e[key];
-    // });
-    // console.log(selectedGrammarArray);
-
-    // set grammar in state
-
+    // set grammar and answer in state
     this.setState(
       {
         currentGrammar: chosenGrammar,
