@@ -27,9 +27,11 @@ router.get("/", (req, res) => {
               verbType: response.data.data[i].senses[0].parts_of_speech[0],
             };
             // only push verbs
+            // remove aru
             if (
               verbObject.verbType.includes("verb") &&
-              !verbObject.verbType.includes("Adverb")
+              !verbObject.verbType.includes("Adverb") &&
+              !verbObject.verbType.includes("aru special class")
             ) {
               n5Array.push(verbObject);
             }
