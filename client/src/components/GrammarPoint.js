@@ -124,7 +124,7 @@ class GrammarPoint extends Component {
       answer = slicedVerb + "んだ";
       this.props.handleGrammarChange(selection, answer);
     } else {
-      // covers godan ru, u, tsu and aru special class
+      // covers godan ru, u, tsu and iku/ yuku special class
       answer = slicedVerb + "った";
       this.props.handleGrammarChange(selection, answer);
     }
@@ -227,6 +227,10 @@ class GrammarPoint extends Component {
     } else if (currentVerb.verbType === "Godan verb with tsu ending") {
       answer = slicedVerb + "たれる";
       this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb - Iku/Yuku special class") {
+      // covers iku - to go
+      answer = slicedVerb + "かれる";
+      this.props.handleGrammarChange(selection, answer);
     } 
   };
 
@@ -281,6 +285,12 @@ class GrammarPoint extends Component {
       } else if (currentVerb.verbType === "Godan verb with tsu ending") {
         answer = slicedVerb + "たせる";
         this.props.handleGrammarChange(selection, answer);
+      } else if (
+        currentVerb.verbType === "Godan verb - Iku/Yuku special class"
+      ) {
+        // covers iku - to go
+        answer = slicedVerb + "かせる";
+        this.props.handleGrammarChange(selection, answer);
       } 
   };
 
@@ -322,7 +332,7 @@ class GrammarPoint extends Component {
       answer = slicedVerb + "んで";
       this.props.handleGrammarChange(selection, answer);
     } else {
-      // covers godan ru, u, tsu and aru special class
+      // covers godan ru, u, tsu and iku/ yuku special class
       answer = slicedVerb + "って";
       this.props.handleGrammarChange(selection, answer);
     }
@@ -369,6 +379,10 @@ class GrammarPoint extends Component {
       this.props.handleGrammarChange(selection, answer);
     } else if (currentVerb.verbType === "Godan verb with tsu ending") {
       answer = slicedVerb + "ちます";
+      this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb - Iku/Yuku special class") {
+      // covers iku - to go
+      answer = slicedVerb + "きます";
       this.props.handleGrammarChange(selection, answer);
     } 
     
@@ -423,8 +437,11 @@ class GrammarPoint extends Component {
     } else if (currentVerb.verbType === "Godan verb with tsu ending") {
       answer = slicedVerb + "とう";
       this.props.handleGrammarChange(selection, answer);
+    } else if (currentVerb.verbType === "Godan verb - Iku/Yuku special class") {
+      // covers iku - to go
+      answer = slicedVerb + "こう";
+      this.props.handleGrammarChange(selection, answer);
     } 
-    
   };
 
   handleImperitiveForm = () => {};
@@ -466,7 +483,7 @@ class GrammarPoint extends Component {
             </button>
           </li>
           <li>
-            <button>volitional</button>
+            <button onClick = {this.handleVolitionalForm.bind(this, "volitionalForm")}>volitional</button>
           </li>
           <li>
             <button>imperitive</button>

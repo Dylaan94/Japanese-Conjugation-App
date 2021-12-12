@@ -31,7 +31,8 @@ router.get("/", (req, res) => {
             if (
               verbObject.verbType.includes("verb") &&
               !verbObject.verbType.includes("Adverb") &&
-              !verbObject.verbType.includes("aru special class")
+              !verbObject.verbType.includes("aru special class") && 
+              !verbObject.dictionaryForm.includes("ある")
             ) {
               n4Array.push(verbObject);
             }
