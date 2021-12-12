@@ -32,9 +32,9 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 
 English       | Dictionary Form | Verbal  | Literary  | なさい     |
 ------------- | --------------- | ------- | --------- | --------- |
-To eat        | 食べる           |　食べろ　 | 食べよ     | 食べなさい  | 
-To see        | 見る            |　見ろ　　 | 見よ   　  | 見なさい  　 | 
-To disappear  | 消える         　|　消えろ　 | 消えよ   　 |  消えなさい | 
+To eat        |  食べる           |　食べろ　 | 食べよ     | 食べなさい  | 
+To see        |  見る            |　見ろ　　 | 見よ   　  | 見なさい  　 | 
+To disappear  |  消える         　|　消えろ　 | 消えよ   　 |  消えなさい | 
 
 
 ## Demo
