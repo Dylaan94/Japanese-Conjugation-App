@@ -27,7 +27,15 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 
 ## Notes
  
-- Currently potential form only accepts grammatically correct masu stem + られる　but will update in the future to add colloquial but largely accepted masu stem + れる
+-  Potential form only accepts grammatically correct masu stem + られる　but will update in the future to add colloquial but largely accepted masu stem + れる
+- Imperative form accepts the common 'verbal conjugation'. Please see the below table. Will potentially add other conjugations in the future
+
+English       | Dictionary Form | Verbal  | Literary  | なさい     |
+------------- | --------------- | ------- | --------- | --------- |
+To eat        | 食べる           |　食べろ　 | 食べよ     | 食べなさい  | 
+To see        | 見る            |　見ろ　　 | 見よ   　  | 見なさい  　 | 
+To disappear  | 消える         　|　消えろ　 | 消えよ   　 |  消えなさい | 
+
 
 ## Demo
 
