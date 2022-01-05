@@ -6,7 +6,9 @@ class Footer extends Component {
   render() {
     return (
       <Styles.FooterMain>
-        <h1> Dylan Brain: </h1>
+        <Styles.FooterContents>
+          <h1> Dylan Brain: </h1>
+        </Styles.FooterContents>
       </Styles.FooterMain>
     );
   }

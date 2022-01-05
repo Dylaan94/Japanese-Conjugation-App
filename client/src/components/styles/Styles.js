@@ -31,8 +31,8 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 98vw;
-  height: 80vh;
   max-width: 600px;
+  height: 750px;
   align-items: center;
   background: #219ebc;
   border: 3px solid #8ecae6;
@@ -209,19 +209,28 @@ const ControllerMain = styled.div`
 `;
 
 // Footer Styles
-
+// lots of copied code here to make footer stick
 const FooterMain = styled.div`
-  display: flex;
-  flex-direction: column;
   height: 4vh;
-  width: 100vw;
+  width: 100%;
   background: black;
-  position: absolute;
-  left: 0;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
   border-top: 3px solid #212529;
   background: #343a40;
 `;
+
+const FooterContents = styled.div`
+height: 4vh;
+width: 1000px;
+margin: auto;
+`
 
 const Styles = {
   MainDiv: MainDiv,
@@ -232,6 +241,7 @@ const Styles = {
   CurrentSelectionMain: CurrentSelectionMain,
   ControllerMain: ControllerMain,
   FooterMain: FooterMain,
+  FooterContents: FooterContents,
 };
 
 export default Styles;
