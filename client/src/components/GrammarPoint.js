@@ -21,6 +21,7 @@ class GrammarPoint extends Component {
 
   // takes in refresh status from main state
   // calls function again to generate new answer
+  // called each time component is updated
   checkRefreshStatus = () => {
     if (
       this.props.grammarRefreshReq === true &&

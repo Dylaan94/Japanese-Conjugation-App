@@ -15,7 +15,7 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 - Battled with whether or not to call all JLPT data at once or based on selected level
 - Creating the logic for checking each grammar point
 - Learned a lot about promises
-- Struggled with learning how to get the grammar point component to generate a new answer without refs
+- Struggled with learning how to get the grammar point component to generate a new answer without refs. Once an answer has been correctly inputted, refreshRequired changes to 'true' which calls another word from the grammarPoint component
 
 ## Future Features
 
