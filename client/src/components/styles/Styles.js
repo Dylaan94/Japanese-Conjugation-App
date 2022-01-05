@@ -30,7 +30,7 @@ const HeaderMain = styled.div`
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 98vw;
   height: 80vh;
   max-width: 600px;
   align-items: center;
@@ -47,7 +47,7 @@ const LevelsMain = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   h2 {
     font-size: 2rem;
     font-weight: 600;
@@ -56,14 +56,15 @@ const LevelsMain = styled.div`
     padding-left: 0.5em;
   }
   ul {
+    max-width: 600px;
     display: flex;
     justify-content: center;
     flex-direction: row;
     list-style-type: none;
   }
   ul > li {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
   //button Styling
   button {
