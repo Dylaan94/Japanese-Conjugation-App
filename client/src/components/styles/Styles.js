@@ -188,7 +188,6 @@ const ControllerMain = styled.div`
       font-size: clamp(4rem, 10vw, 7rem);
       }
     }
-  }
   input {
     margin-top: 1vh;
     width: 50vw;
@@ -207,7 +206,7 @@ const ControllerMain = styled.div`
     color: white;
     font-weight: 900;
   }
-`;
+`
 
 // Footer Styles
 // lots of copied code here to make footer stick
