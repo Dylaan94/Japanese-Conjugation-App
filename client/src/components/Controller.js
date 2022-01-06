@@ -22,6 +22,8 @@ class Controller extends Component {
         {checkTextInput()}
         <div className="textDisplayDiv">
           <h1> {randomisedValue.name} </h1>
+          <h2> {randomisedValue.english}</h2>
+          <h2> {randomisedValue.dictionaryForm}</h2>
           <h2> {randomisedValue.verbType}</h2>
         </div>
         <div className="inputDiv">

@@ -151,6 +151,7 @@ const CurrentSelectionMain = styled.div`
   flex-direction: column;
   align-items: center;
   background: #ffb700;
+  border: 2px solid #8ecae6;
   width: 60vw;
   max-width: 500px;
   height: 8%;
@@ -185,9 +186,9 @@ const ControllerMain = styled.div`
       margin-top: 2vh;
       color: white;
       font-weight: 900;
-      font-size: clamp(4rem, 10vw, 7rem);
-      }
+      font-size: clamp(6rem, 10vw, 8rem);
     }
+  }
   input {
     margin-top: 1vh;
     width: 50vw;
@@ -206,7 +207,7 @@ const ControllerMain = styled.div`
     color: white;
     font-weight: 900;
   }
-`
+`;
 
 // Footer Styles
 // lots of copied code here to make footer stick
@@ -227,10 +228,10 @@ const FooterMain = styled.div`
 `;
 
 const FooterContents = styled.div`
-height: 4vh;
-width: 1000px;
-margin: auto;
-`
+  height: 4vh;
+  width: 1000px;
+  margin: auto;
+`;
 
 const Styles = {
   MainDiv: MainDiv,
