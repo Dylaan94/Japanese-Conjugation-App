@@ -183,9 +183,10 @@ const ControllerMain = styled.div`
     border-radius: 25px;
     h1 {
       margin-top: 2vh;
-      font-size: 9rem;
-      font-weight: 900;
       color: white;
+      font-weight: 900;
+      font-size: clamp(4rem, 10vw, 7rem);
+      }
     }
   }
   input {
