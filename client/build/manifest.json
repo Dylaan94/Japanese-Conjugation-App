@@ -1,0 +1,8 @@
+{
+  "short_name": "Conjugation App",
+  "name": "Japanese Conjugation Practice App",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
