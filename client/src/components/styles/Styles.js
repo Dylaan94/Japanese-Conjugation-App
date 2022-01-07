@@ -238,6 +238,7 @@ const ControllerMain = styled.div`
 // Footer Styles
 // lots of copied code here to make footer stick
 const FooterMain = styled.div`
+display: flex;
   height: 4vh;
   width: 100%;
   background: black;
@@ -256,10 +257,16 @@ const FooterMain = styled.div`
 
 const FooterContents = styled.div`
   height: 4vh;
-  width: 1000px;
   margin: auto;
-  p {
-    font-size: 0.6rem;
+  a {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 4vh;
+    align-items: center;
+  }
+  a:hover {
+    color: #ffb700;
   }
 `;
 
