@@ -35,11 +35,11 @@ English       | Dictionary Form | Verbal  | Literary  | なさい     |
 To eat        |  食べる           |　食べろ　 | 食べよ     | 食べなさい  | 
 To see        |  見る            |　見ろ　　 | 見よ   　  | 見なさい  　 | 
 To disappear  |  消える         　|　消えろ　 | 消えよ   　 |  消えなさい | 
-
+- Some conjugations are a little strange, but this app is more for creating muscle memory over vocabulary study. For example: The te form of 曇る (曇って) would seldom be used in conversation...
 
 ## Demo
 
-- Click here for demo https://dylaan94.github.io/Japanese-Conjugation-App/
+- Deployment in progress
 - NOTE: Only N5 N4 and past tense currently work. Complete database is in progress
 
 ## How to install
