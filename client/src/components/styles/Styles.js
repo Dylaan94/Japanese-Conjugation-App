@@ -182,11 +182,28 @@ const ControllerMain = styled.div`
     text-align: center;
     border: 3px solid #8ecae6;
     border-radius: 25px;
-    h1 {
-      margin-top: 2vh;
+    // text styling
+    .dictionaryFormText {
+      color: white;
+      font-weight: 900;
+      font-size: clamp(1rem, 3vw, 2rem);
+      margin-top: 2rem;
+    }
+    .nameText {
       color: white;
       font-weight: 900;
       font-size: clamp(6rem, 10vw, 8rem);
+      margin-top: -2rem;
+    }
+    .englishText {
+      color: white;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 1.5rem);
+    }
+    .verbTypeText {
+      color: white;
+      font-weight: 900;
+      font-size: clamp(1rem, 3vw, 1.5rem);
     }
   }
   input {

@@ -22,7 +22,12 @@ class Main extends Component {
       N2: "",
       N1: "",
       selected: [],
-      randomised: { name: "テスト" },
+      randomised: {
+        name: "テスト",
+        dictionaryForm: "てすと",
+        english: "Test",
+        verbType: "Noun"
+      },
       textInputValue: "",
       currentLevel: "",
       currentGrammar: "",

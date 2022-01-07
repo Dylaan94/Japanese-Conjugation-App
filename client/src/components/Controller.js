@@ -20,11 +20,11 @@ class Controller extends Component {
     return (
       <Styles.ControllerMain>
         {checkTextInput()}
-        <div className="textDisplayDiv">
-          <h1> {randomisedValue.name} </h1>
-          <h2> {randomisedValue.english}</h2>
-          <h2> {randomisedValue.dictionaryForm}</h2>
-          <h2> {randomisedValue.verbType}</h2>
+        <div className = "textDisplayDiv">
+          <p className = "dictionaryFormText"> {randomisedValue.dictionaryForm}</p>
+          <p className = "nameText"> {randomisedValue.name} </p>
+          <p className = "englishText"> English: {randomisedValue.english}</p>
+          <p className = "verbTypeText"> Verb Type: {randomisedValue.verbType}</p>
         </div>
         <div className="inputDiv">
           <input
