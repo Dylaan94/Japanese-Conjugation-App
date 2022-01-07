@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <Styles.FooterMain>
         <Styles.FooterContents>
-          <h1> Dylan Brain: </h1>
+          <p> Dylan Brain: </p>
         </Styles.FooterContents>
       </Styles.FooterMain>
     );

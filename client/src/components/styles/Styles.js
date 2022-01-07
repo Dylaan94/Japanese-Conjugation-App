@@ -37,8 +37,8 @@ const MainContainer = styled.div`
   background: #219ebc;
   border: 3px solid #8ecae6;
   border-radius: 25px;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
+  margin-bottom: 1.5vh;
+  margin-top: 2vh;
 `;
 
 // Levels Styles
@@ -151,7 +151,7 @@ const CurrentSelectionMain = styled.div`
   flex-direction: column;
   align-items: center;
   background: #ffb700;
-  border: 2px solid #8ecae6;
+  // border: 2px solid #8ecae6;
   width: 60vw;
   max-width: 500px;
   height: 8%;
@@ -177,14 +177,15 @@ const ControllerMain = styled.div`
     margin-top: 2vh;
     background: #023047;
     width: 80vw;
-    height: 35vh;
     max-width: 500px;
+    height: 35vh;
+    min-height: 300px;
     text-align: center;
     border: 3px solid #8ecae6;
     border-radius: 25px;
     // text styling
     .dictionaryFormText {
-      color: white;
+      color: #ced4da;
       font-weight: 900;
       font-size: clamp(1rem, 3vw, 2rem);
       margin-top: 2rem;
@@ -196,24 +197,32 @@ const ControllerMain = styled.div`
       margin-top: -2rem;
     }
     .englishText {
-      color: white;
+      color: #ced4da;
       font-weight: 900;
       font-size: clamp(1.5rem, 3vw, 1.5rem);
+      span {
+        color: #ffb700;
+      }
     }
     .verbTypeText {
-      color: white;
+      color: #ced4da;
       font-weight: 900;
       font-size: clamp(1rem, 3vw, 1.5rem);
+      span {
+        color: #c9184a;
+      }
     }
   }
   input {
     margin-top: 1vh;
     width: 50vw;
     max-width: 400px;
+    min-width: 390px;
     height: 4vh;
+    min-height: 35px;
     border-radius: 10px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 900;
     border: 2px solid #8ecae6;
   }
@@ -239,15 +248,19 @@ const FooterMain = styled.div`
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: 0% 0%;
-  position: fixed;
+  position: sticky;
   border-top: 3px solid #212529;
   background: #343a40;
+  margin-top: 1vh;
 `;
 
 const FooterContents = styled.div`
   height: 4vh;
   width: 1000px;
   margin: auto;
+  p {
+    font-size: 0.6rem;
+  }
 `;
 
 const Styles = {

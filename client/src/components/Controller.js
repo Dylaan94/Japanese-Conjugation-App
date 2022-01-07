@@ -23,8 +23,8 @@ class Controller extends Component {
         <div className = "textDisplayDiv">
           <p className = "dictionaryFormText"> {randomisedValue.dictionaryForm}</p>
           <p className = "nameText"> {randomisedValue.name} </p>
-          <p className = "englishText"> English: {randomisedValue.english}</p>
-          <p className = "verbTypeText"> Verb Type: {randomisedValue.verbType}</p>
+          <p className = "englishText"> <span>English:</span> {randomisedValue.english}</p>
+          <p className = "verbTypeText"> <span>Verb Type:</span> {randomisedValue.verbType}</p>
         </div>
         <div className="inputDiv">
           <input
