@@ -4,7 +4,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16"
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "concurrently": "^7.0.0"
   },
   "scripts": {
     "server": "cd api && npm start",
@@ -12,5 +13,4 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build "
   }
-  
 }
