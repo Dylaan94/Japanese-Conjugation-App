@@ -10,6 +10,6 @@
   "scripts": {
     "server": "cd api && npm start",
     "client": "cd client && npm start",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   }
 }
