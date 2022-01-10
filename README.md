@@ -9,6 +9,7 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 - Text input automatically changes to Hiragana so no need to change input settings
 - Verb changes when correct when pressing space, allows for rapid practice
 - Call Jisho API with Express to get verbs based on JLPT level
+- Stores data to cache to help with loading times and to reduce API calls
 
 ## Challenges
 

@@ -8,6 +8,8 @@ class Levels extends Component {
     this.state = {};
 
     this.handleSelection = this.handleSelection.bind(this);
+    this.changeBackground = this.changeBackground.bind(this);
+    this.resetBackground = this.resetBackground.bind(this);
   }
 
   // takes string that is passed in onClick and sends it
@@ -15,7 +17,15 @@ class Levels extends Component {
 
   handleSelection = (selection) => {
     let chosenLevel = selection;
-      this.props.handleLevelsChange(chosenLevel);
+    this.props.handleLevelsChange(chosenLevel);
+  };
+
+  changeBackground = (e) => {
+    e.target.style.background = "#db222a";
+  };
+
+  resetBackground = (e) => {
+    e.target.style.background = "white";
   };
 
   render() {
@@ -25,19 +35,43 @@ class Levels extends Component {
 
         <ul>
           <li>
-            <button name = "N5" onClick={this.handleSelection.bind(this, "N5")}>  N5</button>
+            <button name="N5" onClick={this.handleSelection.bind(this, "N5")}>
+              {" "}
+              N5
+            </button>
           </li>
           <li>
-            <button name = "N4" onClick={this.handleSelection.bind(this, "N4")}> N4</button>
+            <button name="N4" onClick={this.handleSelection.bind(this, "N4")}>
+              {" "}
+              N4
+            </button>
           </li>
           <li>
-            <button name = "N3" onClick={this.handleSelection.bind(this, "N3")}> N3</button>
+            <button
+              name="N3"
+              onMouseEnter={(e) => this.changeBackground(e)}
+              onMouseLeave={(e) => this.resetBackground(e)}
+            >
+              N3
+            </button>
           </li>
           <li>
-            <button name = "N2" onClick={this.handleSelection.bind(this, "N2")}> N2</button>
+            <button
+              name="N2"
+              onMouseEnter={(e) => this.changeBackground(e)}
+              onMouseLeave={(e) => this.resetBackground(e)}
+            >
+              N2
+            </button>
           </li>
           <li>
-            <button name = "N1" onClick={this.handleSelection.bind(this, "N1")}> N1</button>
+            <button
+              name="N1"
+              onMouseEnter={(e) => this.changeBackground(e)}
+              onMouseLeave={(e) => this.resetBackground(e)}
+            >
+              N1
+            </button>
           </li>
         </ul>
       </Styles.LevelsMain>
