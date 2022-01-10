@@ -26,7 +26,7 @@ class Main extends Component {
         name: "テスト",
         dictionaryForm: "てすと",
         english: "Test",
-        verbType: "Noun"
+        verbType: "Noun",
       },
       textInputValue: "",
       currentLevel: "",
@@ -41,39 +41,66 @@ class Main extends Component {
     this.handleCorrectInput = this.handleCorrectInput.bind(this);
     this.checkTextInput = this.checkTextInput.bind(this);
     this.loadJLPTData = this.loadJLPTData.bind(this);
+    this.loadJLPTData_FromStorage = this.loadJLPTData_FromStorage.bind(this);
   }
 
   // calls all JLPT data from Jisho API
   loadJLPTData = () => {
-    // get all data first and then add to state
-    Promise.all([
-      fetch("http://localhost:9000/n5Data"),
-      fetch("http://localhost:9000/n4Data"),
-    ])
-      .then((res) => {
-        // map through results and run test()
-        Promise.all(
-          res.map((res) => {
-            return res.text();
-          })
-          // organised into variables and parsed for storing in state
-        ).then((data) => {
-          let n5Data = JSON.parse(data[0]);
-          let n4Data = JSON.parse(data[1]);
-          this.setState(
-            {
-              N5: n5Data,
-              N4: n4Data,
-            },
-            () => {
-              console.log(this.state);
-            }
-          );
+    // checks if data has already been cached and saved into storage
+    if (localStorage.getItem("n5Data") !== null) {
+      this.loadJLPTData_FromStorage();
+    } else {
+      // get all data first and then add to state
+      Promise.all([
+        fetch("http://localhost:9000/n5Data"),
+        fetch("http://localhost:9000/n4Data"),
+      ])
+        .then((res) => {
+          // map through results and run test()
+          Promise.all(
+            res.map((res) => {
+              return res.text();
+            })
+            // organised into variables and parsed for storing in state
+          ).then((data) => {
+            let n5Data = JSON.parse(data[0]);
+            let n4Data = JSON.parse(data[1]);
+            localStorage.setItem("n5Data", JSON.stringify(n5Data)); // stringify and send to local storage for cacheing
+            localStorage.setItem("n4Data", JSON.stringify(n4Data));
+            this.setState(
+              {
+                N5: n5Data,
+                N4: n4Data,
+                hasData: true,
+              },
+              () => {
+                console.log(this.state);
+                console.log(localStorage);
+              }
+            );
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          console.log("error blud");
         });
-      })
-      .catch(() => {
-        console.log("error blud");
-      });
+    }
+  };
+
+  // calls data from cache
+  loadJLPTData_FromStorage = () => {
+    console.log("loading from storage");
+    let n5Data = JSON.parse(localStorage.getItem("n5Data"));
+    let n4Data = JSON.parse(localStorage.getItem("n4Data"));
+    this.setState(
+      {
+        N5: n5Data,
+        N4: n4Data,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
 
   // callAPItest = () => {
