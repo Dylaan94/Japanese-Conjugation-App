@@ -41,7 +41,7 @@ To disappear  |  消える         　|　消えろ　 | 消えよ   　 |  消�
 
 ## Demo
 
-- Deployment in progress
+https://japanese-conjugation-app.herokuapp.com/ 
+
 - NOTE: Only N5 N4 and past tense currently work. Complete database is in progress
 
-## How to install
