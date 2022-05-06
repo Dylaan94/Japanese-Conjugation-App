@@ -18,6 +18,7 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 - Learned a lot about promises
 - Struggled with learning how to get the grammar point component to generate a new answer without refs. Once an answer has been correctly inputted, refreshRequired changes to 'true' which calls another word from the grammarPoint component
 - Issues with deploying to Heroku because of unlisted dependencies
+- A lot of tightly-coupled components that need reworking
 
 ## Future Features
 
@@ -26,6 +27,7 @@ An app for practicing conjugating Japanese verbs based on JLPT level and grammar
 - Scorecard
 - More conjugations
 - Ability to chain together grammar points 
+- Refactoring!
 
 ## Notes
  
@@ -44,4 +46,8 @@ To disappear  |  消える         　|　消えろ　 | 消えよ   　 |  消�
 https://japanese-conjugation-app.herokuapp.com/ 
 
 - NOTE: Only N5 N4 and past tense currently work. Complete database is in progress
+
+#### gif below (may take some time to load!)
+
+![demonstation of app](client/assets/images/conjugation-demo.gif)
 
