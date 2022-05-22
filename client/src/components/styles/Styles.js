@@ -238,7 +238,7 @@ const ControllerMain = styled.div`
 // Footer Styles
 // lots of copied code here to make footer stick
 const FooterMain = styled.div`
-display: flex;
+  display: flex;
   height: 4vh;
   width: 100%;
   background: black;
@@ -270,6 +270,34 @@ const FooterContents = styled.div`
   }
 `;
 
+const LoadingScreen = styled.div`
+  z-index: 99;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+  background: #c3c5c7;
+  opacity: 0.98;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loadingScreen {
+   text-align: center;
+    h1 {
+      font-size: 1.5em;
+      font-weight: 900;
+      margin-bottom: 1em;
+    }
+
+  }
+
+  #pleaseWaitGif {
+    border: solid 5px #393938;
+    border-radius: 20px;
+  }
+`;
+
 const Styles = {
   MainDiv: MainDiv,
   MainContainer: MainContainer,
@@ -280,6 +308,7 @@ const Styles = {
   ControllerMain: ControllerMain,
   FooterMain: FooterMain,
   FooterContents: FooterContents,
+  LoadingScreen: LoadingScreen,
 };
 
 export default Styles;

@@ -6,11 +6,10 @@ import GrammarPoint from "./GrammarPoint";
 import CurrentSelection from "./CurrentSelection";
 import Controller from "./Controller";
 import Levels from "./Levels";
+import PleaseWaitModal from "./LoadingScreen";
 
 // style imports
 import Styles from "./styles/Styles";
-// library imports
-import * as wanakana from "wanakana";
 
 class Main extends Component {
   constructor(props) {
@@ -33,6 +32,7 @@ class Main extends Component {
       currentGrammar: "",
       correctConjugation: "", // recieve this from grammar point component
       grammarRefreshReq: false, // when true generates new answer
+      hasData: false,
     };
     this.handleLevelsInput = this.handleLevelsInput.bind(this);
     this.handleGrammarInput = this.handleGrammarInput.bind(this);
@@ -48,7 +48,9 @@ class Main extends Component {
   loadJLPTData = () => {
     // checks if data has already been cached and saved into storage
     if (localStorage.getItem("n5Data") !== null) {
-      this.loadJLPTData_FromStorage();
+      setTimeout(() => {
+        this.loadJLPTData_FromStorage();
+      }, 3000);
     } else {
       // get all data first and then add to state
       Promise.all([
@@ -71,9 +73,14 @@ class Main extends Component {
               {
                 N5: n5Data,
                 N4: n4Data,
-                hasData: true,
               },
               () => {
+                setTimeout(() => {
+                  this.setState({
+                    hasData: true,
+                  });
+                }, 2000);
+
                 console.log(this.state);
                 console.log(localStorage);
               }
@@ -82,13 +89,20 @@ class Main extends Component {
         })
         .catch((err) => {
           console.log(err);
-          console.log("error blud");
+        })
+        .finally(() => {
+          console.log("data loaded");
         });
     }
   };
 
   // calls data from cache
   loadJLPTData_FromStorage = () => {
+    // set state
+    this.setState({
+      hasData: true,
+    });
+
     console.log("loading from storage");
     let n5Data = JSON.parse(localStorage.getItem("n5Data"));
     let n4Data = JSON.parse(localStorage.getItem("n4Data"));
@@ -99,16 +113,10 @@ class Main extends Component {
       },
       () => {
         console.log(this.state);
+        console.log("data loaded");
       }
     );
   };
-
-  // callAPItest = () => {
-  //   fetch("http://localhost:9000/jishoAPI")
-  //     .then((res) => res.text())
-  //     .then((res) => console.log(JSON.parse(res)));
-  //    .then(res => this.setState({ apiResponse: res }));
-  // };
 
   handleLevelsInput = (data) => {
     let selectedLevelArray = this.state[data];
@@ -208,30 +216,33 @@ class Main extends Component {
 
   render() {
     return (
-      <Styles.MainDiv>
-        <Header></Header>
-        <Styles.MainContainer>
-          <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
-          <GrammarPoint
-            handleGrammarChange={this.handleGrammarInput}
-            randomisedValue={this.state.randomised}
-            currentGrammar={this.state.currentGrammar}
-            grammarRefreshReq={this.state.grammarRefreshReq}
-          ></GrammarPoint>
-          <CurrentSelection
-            currentLevel={this.state.currentLevel}
-            currentGrammar={this.state.currentGrammar}
-          ></CurrentSelection>
-          <Controller
-            randomisedValue={this.state.randomised}
-            handleTextInput={this.handleTextInput}
-            checkTextInput={this.checkTextInput}
-            value={this.state.textInputValue}
-          ></Controller>
-          {console.log(this.state.apiResponse)}
-        </Styles.MainContainer>
-        <Footer></Footer>
-      </Styles.MainDiv>
+      <>
+        {this.state.hasData ? <></> : <PleaseWaitModal></PleaseWaitModal>}
+        <Styles.MainDiv>
+          <Header></Header>
+          <Styles.MainContainer>
+            <Levels handleLevelsChange={this.handleLevelsInput}></Levels>
+            <GrammarPoint
+              handleGrammarChange={this.handleGrammarInput}
+              randomisedValue={this.state.randomised}
+              currentGrammar={this.state.currentGrammar}
+              grammarRefreshReq={this.state.grammarRefreshReq}
+            ></GrammarPoint>
+            <CurrentSelection
+              currentLevel={this.state.currentLevel}
+              currentGrammar={this.state.currentGrammar}
+            ></CurrentSelection>
+            <Controller
+              randomisedValue={this.state.randomised}
+              handleTextInput={this.handleTextInput}
+              checkTextInput={this.checkTextInput}
+              value={this.state.textInputValue}
+            ></Controller>
+            {console.log(this.state.apiResponse)}
+          </Styles.MainContainer>
+          <Footer></Footer>
+        </Styles.MainDiv>
+      </>
     );
   }
 }

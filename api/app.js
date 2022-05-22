@@ -7,10 +7,6 @@ var cors = require("cors");
 
 var rateLimit = require('express-rate-limit');
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var testAPIrouter = require("./routes/testAPI");
-
 //JLPT Data Routers
 // var n1DataRouter = require("./routes/n1Data");
 // var n2DataRouter = require("./routes/n2Data");
